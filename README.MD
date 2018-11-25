@@ -14,6 +14,7 @@ UCG has 7 Generators:
 <li>Mycelium</li>
 <li>Dust<sup>1</sup></li>
 </ul>
+Generators can be configured to use RF, and also limit the amount of Items generated per tick.
 All recipes are unlocked when new player joins world.<br/>
 <hr/>
 <small>
