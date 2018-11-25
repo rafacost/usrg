@@ -1,0 +1,7 @@
+tile.ultimatecobblegen:cobblegenerator.name=Cobblestone Generator
+tile.ultimatecobblegen:gravelgenerator.name=Gravel Generator
+tile.ultimatecobblegen:sandgenerator.name=Sand Generator
+tile.ultimatecobblegen:dustgenerator.name=Dust Generator
+tile.ultimatecobblegen:dirtgenerator.name=Dirt Generator
+tile.ultimatecobblegen:grassgenerator.name=Grass Generator
+tile.ultimatecobblegen:fungusgenerator.name=Mycelium Generator

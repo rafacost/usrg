@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ultimatecobblegen",
+  "name": "Ultimate Cobble Generator",
+  "description": "The Ultimate Cobble, Gravel, Sand, Dust and Dirt Generator",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["rafacost3d"],
+  "credits": "All rights reserved for rafacost3d",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

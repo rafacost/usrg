@@ -1,0 +1,29 @@
+{
+  "conditions": [{
+    "type": "minecraft:item_exists",
+    "item": "exnihilocreatio:block_dust"
+  }],
+  "result": {
+    "item": "ultimatecobblegen:dustgenerator"
+  },
+  "pattern": [
+    "ppp",
+    "lcw",
+    "ppp"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "p": {
+      "item": "minecraft:diamond_shovel"
+    },
+    "c": {
+      "item": "exnihilocreatio:block_dust"
+    },
+    "l": {
+      "item": "minecraft:lava_bucket"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  }
+}
