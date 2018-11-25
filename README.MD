@@ -1,6 +1,6 @@
 # Ultimate CobbleStone Generator
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rafacost/bbs_mod/1.12.2/src/main/resources/assets/bbs_mod/textures/gui/bbs_logo.png?raw=true" alt="BBS Logo"/>
+  <img src="https://raw.githubusercontent.com/rafacost/ultimatecobblegen/master/src/main/resources/assets/ultimatecobblegen/textures/wiki/ucg_logo.png" alt="UCG Logo"/>
 </p>
 The Ultimate Solution for Skyblock Packs.
 <br/>

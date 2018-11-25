@@ -1,15 +1,15 @@
 [
 {
   "modid": "ultimatecobblegen",
-  "name": "Ultimate Cobble Generator",
-  "description": "The Ultimate Cobble, Gravel, Sand, Dust and Dirt Generator",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
+  "name": "Ultimate CobbleStone Generator",
+  "description": "The Ultimate Cobble, Gravel, Sand, Dirt, Grass, Mycelium and Dust Generator",
+  "version":"${version}",
+  "mcversion":"${mcversion}",
+  "url": "https://github.com/rafacost/ultimatecobblegen",
+  "updateUrl": "https://raw.githubusercontent.com/rafacost/ultimatecobblegen/master/version.json",
   "authorList": ["rafacost3d"],
   "credits": "All rights reserved for rafacost3d",
-  "logoFile": "",
+  "logoFile": "assets/ultimatecobblegen/textures/wiki/ucg_logo.png",
   "screenshots": [],
   "dependencies": []
 }
