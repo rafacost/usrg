@@ -14,8 +14,8 @@ UCG has 7 Generators:
 <li>Mycelium</li>
 <li>Dust<sup>1</sup></li>
 </ul>
+All recipes are unlocked when new player joins world.<br/>
 <hr/>
-All recipes are unlocked when new player joins world.<br/><br/>
 <small>
 <sup>1</sup> ExNihilo:Creatio must be present to activate the Dust Generator Recipe.
 </small>
