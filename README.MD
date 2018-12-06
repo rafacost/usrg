@@ -1,10 +1,10 @@
 # Ultimate CobbleStone Generator
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rafacost/ultimatecobblegen/master/src/main/resources/assets/ultimatecobblegen/textures/wiki/ucg_logo.png" alt="UCG Logo"/>
+  <img src="https://raw.githubusercontent.com/rafacost/ultimatecobblegen/master/src/main/resources/assets/ultimatecobblegen/textures/wiki/usrg_logo.png" alt="USRG Logo"/>
 </p>
 The Ultimate Solution for Skyblock Packs.
 <br/>
-UCG has 7 Generators:
+UCG has 8 Generators:
 <ul>
 <li>CobbleStone</li>
 <li>Gravel</li>
@@ -12,6 +12,7 @@ UCG has 7 Generators:
 <li>Dirt</li>
 <li>Grass</li>
 <li>Mycelium</li>
+<li>Obsidian</li>
 <li>Dust<sup>1</sup></li>
 </ul>
 Generators can be configured to use RF, and also limit the amount of Items generated per tick.
