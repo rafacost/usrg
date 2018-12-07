@@ -4,7 +4,7 @@
 </p>
 The Ultimate Solution for Skyblock Packs.
 <br/>
-UCG has 8 Generators:
+UCG has 10 Generators:
 <ul>
 <li>CobbleStone</li>
 <li>Gravel</li>
@@ -13,6 +13,8 @@ UCG has 8 Generators:
 <li>Grass</li>
 <li>Mycelium</li>
 <li>Obsidian</li>
+<li>Ice</li>
+<li>Snow</li>
 <li>Dust<sup>1</sup></li>
 </ul>
 Generators can be configured to use RF, and also limit the amount of Items generated per tick.
