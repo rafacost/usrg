@@ -1,4 +1,4 @@
-# Ultimate CobbleStone Generator
+# Ultimate Skyblock Resource Generator
 <p align="center">
   <img src="https://raw.githubusercontent.com/rafacost/ultimatecobblegen/master/src/main/resources/assets/ultimatecobblegen/textures/wiki/usrg_logo.png" alt="USRG Logo"/>
 </p>
