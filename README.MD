@@ -4,18 +4,26 @@
 </p>
 The Ultimate Solution for Skyblock Packs.
 <br/>
-UCG has 10 Generators:
+USRG has 17 Generators:
 <ul>
-<li>CobbleStone</li>
-<li>Gravel</li>
-<li>Sand</li>
-<li>Dirt</li>
-<li>Grass</li>
-<li>Mycelium</li>
-<li>Obsidian</li>
-<li>Ice</li>
-<li>Snow</li>
-<li>Dust<sup>1</sup></li>
+  <li>Clay</li>
+  <li>CobbleStone</li>
+  <li>Dirt</li>
+  <li>EndStone</li>
+  <li>Mycelium</li>
+  <li>Glowstone</li>
+  <li>Grass</li>
+  <li>Gravel</li>
+  <li>Ice</li>
+  <li>Netherack</li> 
+  <li>Obsidian</li>
+  <li>OreGenerator</li>
+  <li>NetherQuartz</li>
+  <li>RedStone</li>
+  <li>Sand</li>
+  <li>Snow</li>
+  <li>SoulSand</li>
+  <li>Dust<sup>1</sup></li>
 </ul>
 Generators can be configured to use RF, and also limit the amount of Items generated per tick.
 All recipes are unlocked when new player joins world.<br/>
