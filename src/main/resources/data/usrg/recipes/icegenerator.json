@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "wcw",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    "c": {
+      "item": "minecraft:snowball"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "usrg:icegenerator"
+  }
+}

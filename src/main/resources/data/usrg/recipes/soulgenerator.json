@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "lcl",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:diamond_shovel"
+    },
+    "c": {
+      "item": "minecraft:soul_sand"
+    },
+    "l": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "item": "usrg:soulgenerator"
+  }
+}
