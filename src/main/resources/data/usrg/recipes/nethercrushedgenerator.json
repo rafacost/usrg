@@ -1,4 +1,8 @@
 {
+  "conditions": [{
+    "type": "forge:item_exists",
+    "item": "exnihilosequentia:crushed_netherrack"
+  }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "ppp",
