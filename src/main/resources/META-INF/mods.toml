@@ -1,36 +1,53 @@
-# This is an example mods.toml file. It contains the data relating to the loading mods.
 # There are several mandatory fields (#mandatory), and many more that are optional (#optional).
 # The overall format is standard TOML format, v0.5.0.
 # Note that there are a couple of TOML lists in this file.
 # Find more information on toml format here:  https://github.com/toml-lang/toml
+
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
-# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
-loaderVersion="[28,)" #mandatory (28 is current forge version)
+
+# A version range to match for said mod loader - for regular FML @Mod it will be the minecraft version (without the 1.)
+loaderVersion="[35,)" #mandatory
+
+# A URL to query for updates for this mod. See the JSON update specification <here>
+#updateJSONURL="" #optional
+
 # A URL to refer people to when problems occur with this mod
 issueTrackerURL="https://github.com/rafacost/ultimatecobblegen/issues/" #optional
-# A list of mods - how many allowed here is determined by the individual mod loader
-[[mods]] #mandatory
-# The modid of the mod
-modId="usrg" #mandatory
-# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-version="${file.jarVersion}" #mandatory
- # A display name for the mod
-displayName="Ultimate Skyblock Resource Generator" #mandatory
-# A URL to query for updates for this mod. See the JSON update specification <here>
-updateJSONURL="https://raw.githubusercontent.com/rafacost/ultimatecobblegen/master/version.json" #optional
+
 # A URL for the "homepage" for this mod, displayed in the mod UI
 displayURL="https://www.curseforge.com/minecraft/mc-mods/ultimate-skyblock-generator/" #optional
+
+# License
+license="The MIT License (MIT)"
+
 # A file name (in the root of the mod JAR) containing a logo for display
-logoFile="usrg_logo.png" #optional
+#logoFile="usrg_logo.png" #optional
+
 # A text field displayed in the mod UI
-credits="All rights reserved for rafacost3d" #optional
+#credits="Thanks for this example mod goes to Java" #optional
+
 # A text field displayed in the mod UI
 authors="rafacost3d" #optional
+
+# A list of mods - how many allowed here is determined by the individual mod loader
+[[mods]] #mandatory
+
+# The modid of the mod
+modId="usrg" #mandatory
+
+# The version number of the mod
+version="${file.jarVersion}" #mandatory
+
+# A display name for the mod
+displayName="Ultimate Skyblock Resource Generator" #mandatory
+
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-The Ultimate Cobble, Gravel, Sand, Dirt, Grass, Mycelium, Obsidian, Ice, Snow and Dust Generator
+The Ultimate Cobble, Gravel, Sand, Dirt, Grass, Mycelium, Obsidian, Ice and Snow Generator.
+If Ex Nihilo: Sequentia installed, includes Dust Generator.
 '''
+
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.usrg]] #optional
     # the modid of the dependency
@@ -38,15 +55,24 @@ The Ultimate Cobble, Gravel, Sand, Dirt, Grass, Mycelium, Obsidian, Ice, Snow an
     # Does this dependency have to exist - if not, ordering below must be specified
     mandatory=true #mandatory
     # The version range of the dependency
-    versionRange="[28,)" #mandatory
+    versionRange="[35,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
+    
 # Here's another dependency
 [[dependencies.usrg]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.1]"
+    versionRange="[1.16.4,1.17)"
     ordering="NONE"
     side="BOTH"
+    
+# Here's another dependency
+[[dependencies.usrg]]
+    modId="exnihilosequentia"
+    mandatory=false
+    versionRange="[1.3,)"
+    ordering="AFTER"
+    side="BOTH"    

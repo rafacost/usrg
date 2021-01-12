@@ -2,12 +2,16 @@ package com.rafacost3d.usrg.setup;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
+import com.google.common.base.Predicates;
+import com.google.common.collect.Lists;
+
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.common.Mod;
 
 
 
 import java.nio.file.Path;
+import java.util.List;
 
 @Mod.EventBusSubscriber
 public class Config {
@@ -23,15 +27,7 @@ public class Config {
 
     public static ForgeConfigSpec.IntValue BLOCK_PER_TICK;
     public static ForgeConfigSpec.IntValue ORE_PER_TICK;
-    public static ForgeConfigSpec.DoubleValue EMERALD_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue DIAMOND_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue LAPIS_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue NETHER_QUARTZ_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue GOLD_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue REDSTONE_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue IRON_ORE_PROB;
-    public static ForgeConfigSpec.DoubleValue COAL_ORE_PROB;
-
+    public static ForgeConfigSpec.ConfigValue<List<? extends String>> ORE_GENERATOR_ITEMS;
 
     static {
         COMMON_BUILDER.comment("General Settings").push(CATEGORY_GENERAL);
@@ -42,14 +38,10 @@ public class Config {
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("OreGenerator Probabilities").push(CATEGORY_OREGEN);
-        EMERALD_ORE_PROB = COMMON_BUILDER.comment("Emerald Probability").defineInRange("emerald_prob", 0.01, 0, 1.0);
-        DIAMOND_ORE_PROB = COMMON_BUILDER.comment("Diamond Probability").defineInRange("diamond_prob", 0.05, 0, 1.0);
-        LAPIS_ORE_PROB = COMMON_BUILDER.comment("Lapis Probability").defineInRange("lapis_prob", 0.1, 0, 1.0);
-        NETHER_QUARTZ_ORE_PROB = COMMON_BUILDER.comment("Quartz Probability").defineInRange("quartz_prob", 0.0, 0, 1.0);
-        GOLD_ORE_PROB = COMMON_BUILDER.comment("Gold Probability").defineInRange("gold_prob", 0.25, 0, 1.0);
-        REDSTONE_ORE_PROB = COMMON_BUILDER.comment("Redstone Probability").defineInRange("redstone_prob", 0.0, 0, 1.0);
-        IRON_ORE_PROB = COMMON_BUILDER.comment("Iron Probability").defineInRange("iron_prob", 0.45, 0, 1.0);
-        COAL_ORE_PROB = COMMON_BUILDER.comment("Coal Probability").defineInRange("coal_prob", 0.50, 0, 1.0);
+        ORE_GENERATOR_ITEMS = COMMON_BUILDER
+                .comment("Comma separated list of the items and probabilities (probability value between 0.00 and 1.00) to be used in the Ore Generator, format to use: \"modid:itemname*probability\" e.g. \"minecraft:iron_ore*0.45\"")
+                .defineList("oreGeneratorItems", 
+            		Lists.newArrayList("minecraft:coal_ore*0.50", "minecraft:iron_ore*0.45", "minecraft:gold_ore*0.25", "minecraft:lapis_ore*0.10", "minecraft:redstone_ore*0.10", "minecraft:diamond_ore*0.05", "minecraft:emerald_ore*0.01", "minecraft:nether_quartz_ore*0.00"), Predicates.alwaysTrue());
         COMMON_BUILDER.pop();
 
         COMMON_CONFIG = COMMON_BUILDER.build();

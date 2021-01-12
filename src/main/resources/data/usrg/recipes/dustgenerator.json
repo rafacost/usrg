@@ -1,0 +1,30 @@
+{
+  "conditions": [{
+    "type": "minecraft:item_exists",
+    "item": "exnihilosequentia:dust"
+  }],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "lcw",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:iron_shovel"
+    },
+    "c": {
+      "item": "exnihilosequentia:dust",
+      "data": 0
+    },
+    "l": {
+      "item": "minecraft:lava_bucket"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "usrg:dustgenerator"
+  }
+}

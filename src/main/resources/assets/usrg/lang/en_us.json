@@ -17,6 +17,10 @@
   "block.usrg.soulgenerator": "SoulSand Generator",
   "block.usrg.oregenerator": "Ore Generator",
 
+  "block.usrg.dustgenerator": "Dust Generator",
+  "block.usrg.endcrushedgenerator": "Crushed Endstone Generator",
+  "block.usrg.nethercrushedgenerator": "Crushed Netherrack Generator",
+  
   "_comment": "Creative Tabs",
   "itemGroup.usrg": "USRGenerators"
 }
