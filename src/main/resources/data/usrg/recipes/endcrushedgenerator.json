@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "ppp",
-    "lcl",
+    "lcw",
     "ppp"
   ],
   "key": {
@@ -14,9 +14,12 @@
     },
     "l": {
       "item": "minecraft:lava_bucket"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
     }
   },
   "result": {
-    "item": "usrg:endgenerator"
+    "item": "usrg:endcrushedgenerator"
   }
 }

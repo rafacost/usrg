@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
@@ -16,6 +17,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.ForgeRegistries;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -69,7 +72,26 @@ public class USRG
             event.getRegistry().register(new SnowGenerator());
             event.getRegistry().register(new SoulGenerator());
             event.getRegistry().register(new OreGenerator());
+            
+        	LOGGER.info("USRG - Vanilla Generator blocks registered");
 
+            ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(new DustGenerator());
+            	LOGGER.info("Ex Nihilo: Sequentia - Dust Generator block registered");
+            }
+
+            key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(new CrushedEndstoneGenerator());
+            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Endstone Generator block registered");
+            }
+
+            key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(new CrushedNetherGenerator());
+            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Netherrack Generator block registered");
+            }
         }
 
         @SubscribeEvent
@@ -93,6 +115,26 @@ public class USRG
             event.getRegistry().register(new BlockItem(ModBlocks.SNOWGENERATOR, properties).setRegistryName("snowgenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.SOULGENERATOR, properties).setRegistryName("soulgenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.OREGENERATOR, properties).setRegistryName("oregenerator"));
+            
+        	LOGGER.info("USRG - Vanilla Generator items registered");
+
+            ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(new BlockItem(ModBlocks.DUSTGENERATOR, properties).setRegistryName("dustgenerator"));
+            	LOGGER.info("Ex Nihilo: Sequentia - Dust Generator item registered");
+            }
+
+            key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(new BlockItem(ModBlocks.ENDCRUSHEDGENERATOR, properties).setRegistryName("endcrushedgenerator"));
+            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Endstone Generator item registered");
+            } 
+
+            key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(new BlockItem(ModBlocks.NETHERCRUSHEDGENERATOR, properties).setRegistryName("nethercrushedgenerator"));
+            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Netherrack Generator item registered");
+            }       
         }
 
         @SubscribeEvent
@@ -114,7 +156,26 @@ public class USRG
             event.getRegistry().register(TileEntityType.Builder.create(SnowGeneratorTile::new, ModBlocks.SNOWGENERATOR).build(null).setRegistryName("snowgenerator"));
             event.getRegistry().register(TileEntityType.Builder.create(SoulGeneratorTile::new, ModBlocks.SOULGENERATOR).build(null).setRegistryName("soulgenerator"));
             event.getRegistry().register(TileEntityType.Builder.create(OreGeneratorTile::new, ModBlocks.OREGENERATOR).build(null).setRegistryName("oregenerator"));
+            
+        	LOGGER.info("USRG - Vanilla Generator tile entities registered");
 
+            ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(TileEntityType.Builder.create(DustGeneratorTile::new, ModBlocks.DUSTGENERATOR).build(null).setRegistryName("dustgenerator"));
+            	LOGGER.info("Ex Nihilo: Sequentia - Dust Generator tile entity registered");
+            }
+
+            key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(TileEntityType.Builder.create(CrushedEndstoneGeneratorTile::new, ModBlocks.ENDCRUSHEDGENERATOR).build(null).setRegistryName("endcrushedgenerator"));
+            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Endstone Generator tile entity registered");
+            }
+
+            key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	event.getRegistry().register(TileEntityType.Builder.create(CrushedNetherGeneratorTile::new, ModBlocks.NETHERCRUSHEDGENERATOR).build(null).setRegistryName("nethercrushedgenerator"));
+            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Netherrack Generator tile entity registered");
+            }
         }
     }
 }

@@ -17,6 +17,14 @@ public class ModBlocks {
     public static DirtGenerator DIRTGENERATOR;
     @ObjectHolder("usrg:dirtgenerator")
     public static TileEntityType<DirtGeneratorTile> DIRTGENERATOR_TILE;
+    @ObjectHolder("usrg:dustgenerator")
+    public static DustGenerator DUSTGENERATOR;    
+    @ObjectHolder("usrg:dustgenerator")
+    public static TileEntityType<DustGeneratorTile> DUSTGENERATOR_TILE;    
+    @ObjectHolder("usrg:endcrushedgenerator")
+    public static CrushedEndstoneGenerator ENDCRUSHEDGENERATOR;
+    @ObjectHolder("usrg:endcrushedgenerator")
+    public static TileEntityType<CrushedEndstoneGeneratorTile> ENDCRUSHEDGENERATOR_TILE;
     @ObjectHolder("usrg:endgenerator")
     public static EndstoneGenerator ENDGENERATOR;
     @ObjectHolder("usrg:endgenerator")
@@ -41,6 +49,10 @@ public class ModBlocks {
     public static IceGenerator ICEGENERATOR;
     @ObjectHolder("usrg:icegenerator")
     public static TileEntityType<IceGeneratorTile> ICEGENERATOR_TILE;
+    @ObjectHolder("usrg:nethercrushedgenerator")
+    public static CrushedNetherGenerator NETHERCRUSHEDGENERATOR;
+    @ObjectHolder("usrg:nethercrushedgenerator")
+    public static TileEntityType<CrushedNetherGeneratorTile> NETHERCRUSHEDGENERATOR_TILE;
     @ObjectHolder("usrg:nethergenerator")
     public static NetherGenerator NETHERGENERATOR;
     @ObjectHolder("usrg:nethergenerator")
