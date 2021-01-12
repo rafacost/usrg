@@ -106,8 +106,8 @@ public class DustGenerator extends Block implements ITileEntityProvider {
         @Nonnull
         @Override
         public ItemStack getStackInSlot(int slot) {
-            if (Loader.isModLoaded("exnihilocreatio")) {
-                Block dust = Block.REGISTRY.getObject(new ResourceLocation("exnihilocreatio:block_dust"));
+            if (Loader.isModLoaded("exnihilosequentia")) {
+                Block dust = Block.REGISTRY.getObject(new ResourceLocation("exnihilosequentia:block_dust"));
                 return new ItemStack(dust, getMaxCobble());
             } else {
                 return new ItemStack(Blocks.SAND);
