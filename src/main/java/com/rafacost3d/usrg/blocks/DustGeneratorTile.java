@@ -18,11 +18,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.rafacost3d.usrg.setup.Config;
+
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class DustGeneratorTile extends TileEntity implements ITickableTileEntity {
 
     private ItemStackHandler handler;
+
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
     public DustGeneratorTile() {
         super(DUSTGENERATOR_TILE);
@@ -30,17 +35,21 @@ public class DustGeneratorTile extends TileEntity implements ITickableTileEntity
 
     @Override
     public void tick() {
-    	ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
-    	
-        if (ForgeRegistries.BLOCKS.containsKey(key)) {
-        	Block block = ForgeRegistries.BLOCKS.getValue(key);
-            ItemStack stack = new ItemStack(block, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
-        } else {
-        	Block block = Blocks.SAND;
-            ItemStack stack = new ItemStack(block, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
-        }    	
+        if(tickcount % tickspergencycle == 0) {
+        	ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
+        	
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            	Block block = ForgeRegistries.BLOCKS.getValue(key);
+                ItemStack stack = new ItemStack(block, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
+            } else {
+            	Block block = Blocks.SAND;
+                ItemStack stack = new ItemStack(block, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
+            }    
+            tickcount = 1;
+        }
+        tickcount += 1;	
     }
 
     @Override

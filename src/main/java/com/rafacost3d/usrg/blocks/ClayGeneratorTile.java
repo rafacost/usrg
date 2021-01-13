@@ -1,6 +1,7 @@
 package com.rafacost3d.usrg.blocks;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
@@ -15,11 +16,16 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.rafacost3d.usrg.setup.Config;
+
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class ClayGeneratorTile extends TileEntity implements ITickableTileEntity {
 
     private ItemStackHandler handler;
+
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
     public ClayGeneratorTile() {
         super(CLAYGENERATOR_TILE);
@@ -27,8 +33,12 @@ public class ClayGeneratorTile extends TileEntity implements ITickableTileEntity
 
     @Override
     public void tick() {
-        ItemStack stack = new ItemStack(Blocks.CLAY, 1);
-        ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+        if(tickcount % tickspergencycle == 0) {
+            ItemStack stack = new ItemStack(Blocks.CLAY, 1);
+            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+            tickcount = 1;
+        }
+        tickcount += 1;
     }
 
 //    @Override
