@@ -2,6 +2,7 @@ package com.rafacost3d.usrg.blocks;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -15,6 +16,8 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.rafacost3d.usrg.setup.Config;
+
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class SnowGeneratorTile extends TileEntity implements ITickableTileEntity {
@@ -27,8 +30,13 @@ public class SnowGeneratorTile extends TileEntity implements ITickableTileEntity
 
     @Override
     public void tick() {
-        ItemStack stack = new ItemStack(Blocks.SNOW_BLOCK, 1);
-        ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	if (Config.GENERATE_DUST.get()) {
+            ItemStack stack = new ItemStack(Items.SNOWBALL, 1);
+            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	} else {
+            ItemStack stack = new ItemStack(Blocks.SNOW_BLOCK, 1);
+            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	}
     }
 
 //    @Override
