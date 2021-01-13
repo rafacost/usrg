@@ -2,6 +2,7 @@ package com.rafacost3d.usrg.blocks;
 
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -33,8 +34,13 @@ public class RedstoneGeneratorTile extends TileEntity implements ITickableTileEn
     @Override
     public void tick() {
         if(tickcount % tickspergencycle == 0) {
-            ItemStack stack = new ItemStack(Blocks.REDSTONE_BLOCK, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      if (Config.GENERATE_DUST.get()) {
+                ItemStack stack = new ItemStack(Items.REDSTONE, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      } else {
+                ItemStack stack = new ItemStack(Blocks.REDSTONE_BLOCK, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      }
             tickcount = 1;
         }
         tickcount += 1;

@@ -45,7 +45,7 @@ displayName="Ultimate Skyblock Resource Generator" #mandatory
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 The Ultimate Cobble, Gravel, Sand, Dirt, Grass, Mycelium, Obsidian, Ice and Snow Generator.
-If Ex Nihilo: Sequentia installed, includes Dust Generator.
+If Ex Nihilo: Sequentia installed, includes Dust, Crushed Endstone and Crushed Netherrack Generator.
 '''
 
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.

@@ -25,12 +25,13 @@ public class Config {
     public static ForgeConfigSpec COMMON_CONFIG;
     public static ForgeConfigSpec CLIENT_CONFIG;
 
+    public static ForgeConfigSpec.BooleanValue GENERATE_DUST;
     public static ForgeConfigSpec.IntValue BLOCK_PER_TICK;
-    public static ForgeConfigSpec.IntValue ORE_PER_TICK;
     public static ForgeConfigSpec.ConfigValue<List<? extends String>> ORE_GENERATOR_ITEMS;
 
     static {
         COMMON_BUILDER.comment("General Settings").push(CATEGORY_GENERAL);
+        GENERATE_DUST = COMMON_BUILDER.comment("Clay, Glowstone, Quartz, Redstone and Snow Generators will generate dust items, not blocks.").define("generate_dust", false);
         BLOCK_PER_TICK = COMMON_BUILDER.comment("Ticks between each generation cycle.").defineInRange("blocks_per_tick", 40, 1, 2000);
         COMMON_BUILDER.pop();
 
