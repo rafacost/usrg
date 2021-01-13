@@ -24,19 +24,26 @@ public class QuartzGeneratorTile extends TileEntity implements ITickableTileEnti
 
     private ItemStackHandler handler;
 
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
+
     public QuartzGeneratorTile() {
         super(QUARTZGENERATOR_TILE);
     }
 
     @Override
     public void tick() {
-    	if (Config.GENERATE_DUST.get()) {
-            ItemStack stack = new ItemStack(Items.QUARTZ, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-    	} else {
-            ItemStack stack = new ItemStack(Blocks.QUARTZ_BLOCK, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-    	}
+        if(tickcount % tickspergencycle == 0) {
+    	      if (Config.GENERATE_DUST.get()) {
+                ItemStack stack = new ItemStack(Items.QUARTZ, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      } else {
+                ItemStack stack = new ItemStack(Blocks.QUARTZ_BLOCK, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      }
+            tickcount = 1;
+        }
+        tickcount += 1;
     }
 
 //    @Override

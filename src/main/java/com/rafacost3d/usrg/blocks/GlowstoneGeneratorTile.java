@@ -24,19 +24,26 @@ public class GlowstoneGeneratorTile extends TileEntity implements ITickableTileE
 
     private ItemStackHandler handler;
 
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
+
     public GlowstoneGeneratorTile() {
         super(GLOWSTONEGENERATOR_TILE);
     }
 
     @Override
     public void tick() {
-    	if (Config.GENERATE_DUST.get()) {
-            ItemStack stack = new ItemStack(Items.GLOWSTONE_DUST, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-    	} else {
-            ItemStack stack = new ItemStack(Blocks.GLOWSTONE, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-    	}
+        if(tickcount % tickspergencycle == 0) {
+    	      if (Config.GENERATE_DUST.get()) {
+                ItemStack stack = new ItemStack(Items.GLOWSTONE_DUST, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      } else {
+                ItemStack stack = new ItemStack(Blocks.GLOWSTONE, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      }
+            tickcount = 1;
+        }
+        tickcount += 1;
     }
 //
 //    @Override

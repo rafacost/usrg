@@ -24,19 +24,26 @@ public class SnowGeneratorTile extends TileEntity implements ITickableTileEntity
 
     private ItemStackHandler handler;
 
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
+
     public SnowGeneratorTile() {
         super(SNOWGENERATOR_TILE);
     }
 
     @Override
     public void tick() {
-    	if (Config.GENERATE_DUST.get()) {
-            ItemStack stack = new ItemStack(Items.SNOWBALL, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-    	} else {
-            ItemStack stack = new ItemStack(Blocks.SNOW_BLOCK, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-    	}
+        if(tickcount % tickspergencycle == 0) {
+    	      if (Config.GENERATE_DUST.get()) {
+                ItemStack stack = new ItemStack(Items.SNOWBALL, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      } else {
+                ItemStack stack = new ItemStack(Blocks.SNOW_BLOCK, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      }
+            tickcount = 1;
+        }
+        tickcount += 1;
     }
 
 //    @Override

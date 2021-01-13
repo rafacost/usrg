@@ -15,11 +15,16 @@ import net.minecraftforge.items.ItemStackHandler;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+import com.rafacost3d.usrg.setup.Config;
+
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class EndstoneGeneratorTile extends TileEntity implements ITickableTileEntity {
 
     private ItemStackHandler handler;
+
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
     public EndstoneGeneratorTile() {
         super(ENDGENERATOR_TILE);
@@ -27,8 +32,12 @@ public class EndstoneGeneratorTile extends TileEntity implements ITickableTileEn
 
     @Override
     public void tick() {
-        ItemStack stack = new ItemStack(Blocks.END_STONE, 1);
-        ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+        if(tickcount % tickspergencycle == 0) {
+            ItemStack stack = new ItemStack(Blocks.END_STONE, 1);
+            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+            tickcount = 1;
+        }
+        tickcount += 1;
     }
 
 //    @Override
