@@ -31,7 +31,7 @@ public class Config {
 
     static {
         COMMON_BUILDER.comment("General Settings").push(CATEGORY_GENERAL);
-        BLOCK_PER_TICK = COMMON_BUILDER.comment("Ticks between Block Generated").defineInRange("blocks_per_tick", 40, 1, 2000);
+        BLOCK_PER_TICK = COMMON_BUILDER.comment("Ticks between each generation cycle.").defineInRange("blocks_per_tick", 40, 1, 2000);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("OreGenerator Settings").push(CATEGORY_OREGEN);
