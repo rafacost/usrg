@@ -1,7 +1,9 @@
 package com.rafacost3d.usrg.blocks;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -11,9 +13,12 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
+import com.rafacost3d.usrg.setup.Config;
 
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
@@ -21,14 +26,26 @@ public class ClayGeneratorTile extends TileEntity implements ITickableTileEntity
 
     private ItemStackHandler handler;
 
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
+
     public ClayGeneratorTile() {
         super(CLAYGENERATOR_TILE);
     }
 
     @Override
     public void tick() {
-        ItemStack stack = new ItemStack(Blocks.CLAY, 1);
-        ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+        if(tickcount % tickspergencycle == 0) {
+            if (Config.GENERATE_DUST.get()) {
+                ItemStack stack = new ItemStack(Items.CLAY_BALL, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      } else {
+                ItemStack stack = new ItemStack(Blocks.CLAY, 1);
+                ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
+    	      }
+            tickcount = 1;
+        }
+        tickcount += 1;
     }
 
 //    @Override
