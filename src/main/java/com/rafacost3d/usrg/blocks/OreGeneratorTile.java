@@ -33,6 +33,9 @@ public class OreGeneratorTile extends TileEntity implements ITickableTileEntity 
     private HashMap<Integer, Item> oreItems = new HashMap<Integer, Item>();
     private HashMap<Integer, Integer> oreProbs = new HashMap<Integer, Integer>();
 
+    private Integer tickcount = 0;
+    private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
+    
     public OreGeneratorTile() {
         super(OREGENERATOR_TILE);
         
@@ -137,18 +140,16 @@ public class OreGeneratorTile extends TileEntity implements ITickableTileEntity 
         return oreItems.get(key);
     }
 
-    private Integer count=0;
-    private Integer orepertick= Config.BLOCK_PER_TICK.get();
     @Override
     public void tick() {
-        if(count%orepertick == 0) {
+        if(tickcount % tickspergencycle == 0) {
         	Item item = rndOre();
         	if (item != null) {
                 ItemStack stack = new ItemStack(item, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
         	}
         }
-        count+=1;
+        tickcount += 1;
     }
 
 //    @Override
