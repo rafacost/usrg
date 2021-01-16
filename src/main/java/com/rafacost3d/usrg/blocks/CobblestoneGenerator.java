@@ -5,11 +5,17 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
+
 import net.minecraft.world.IBlockReader;
 
 import javax.annotation.Nullable;
 
+
 public class CobblestoneGenerator extends Block {
+
+
+
+
     public CobblestoneGenerator(){
         super(Properties.create(Material.ROCK)
                 .sound(SoundType.STONE)
@@ -28,4 +34,10 @@ public class CobblestoneGenerator extends Block {
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
         return new CobblestoneGeneratorTile();
     }
+
+
+
+
+
 }
+
