@@ -1,6 +1,8 @@
 package com.rafacost3d.usrg.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -22,6 +24,9 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class GlowstoneGeneratorTile extends TileEntity implements ITickableTileEntity {
 
+	public static final Block GENERATION_BLOCK = Blocks.GLOWSTONE;
+	public static final Item GENERATION_ITEM = Items.GLOWSTONE_DUST;
+
     private ItemStackHandler handler;
 
     private Integer tickcount = 0;
@@ -35,10 +40,10 @@ public class GlowstoneGeneratorTile extends TileEntity implements ITickableTileE
     public void tick() {
         if(tickcount % tickspergencycle == 0) {
     	      if (Config.GENERATE_DUST.get()) {
-                ItemStack stack = new ItemStack(Items.GLOWSTONE_DUST, 1);
+                ItemStack stack = new ItemStack(GENERATION_ITEM, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
     	      } else {
-                ItemStack stack = new ItemStack(Blocks.GLOWSTONE, 1);
+                ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
     	      }
             tickcount = 1;
@@ -67,7 +72,8 @@ public class GlowstoneGeneratorTile extends TileEntity implements ITickableTileE
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){

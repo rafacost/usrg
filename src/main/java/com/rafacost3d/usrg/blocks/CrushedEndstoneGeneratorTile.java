@@ -24,8 +24,9 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class CrushedEndstoneGeneratorTile extends TileEntity implements ITickableTileEntity {
 
-    private ItemStackHandler handler;
+	public static final Block GENERATION_BLOCK = Blocks.END_STONE;
 
+    private ItemStackHandler handler;
     private Integer tickcount = 0;
     private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
@@ -43,8 +44,7 @@ public class CrushedEndstoneGeneratorTile extends TileEntity implements ITickabl
                 ItemStack stack = new ItemStack(block, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
             } else {
-            	Block block = Blocks.END_STONE;
-                ItemStack stack = new ItemStack(block, 1);
+                ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
             }
             tickcount = 1;
@@ -73,7 +73,8 @@ public class CrushedEndstoneGeneratorTile extends TileEntity implements ITickabl
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
