@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ppp",
+    "wcw",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "minecraft:golden_shovel"
+    },
+    "c": {
+      "tag": "forge:dyes"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "usrg:dyegenerator"
+  }
+}
