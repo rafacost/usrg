@@ -22,4 +22,4 @@ logs
 eclipse
 run
 build.bat
-setup.bat
+setup*.bat
