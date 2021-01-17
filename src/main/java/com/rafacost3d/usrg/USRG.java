@@ -71,9 +71,18 @@ public class USRG
             event.getRegistry().register(new SandGenerator());
             event.getRegistry().register(new SnowGenerator());
             event.getRegistry().register(new SoulGenerator());
-            event.getRegistry().register(new OreGenerator());
-            
-        	LOGGER.info("USRG - Vanilla Generator blocks registered");
+
+            LOGGER.info("USRG - Vanilla Generator blocks registered");
+
+            if (Config.ENABLE_ORE_GENERATOR.get()) {
+                event.getRegistry().register(new OreGenerator());
+                LOGGER.info("USRG - Ore Generator block registered");
+            }
+
+            if (Config.ENABLE_DYE_GENERATOR.get()) {
+                event.getRegistry().register(new DyeGenerator());
+                LOGGER.info("USRG - Dye Generator block registered");
+            }
 
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
@@ -114,9 +123,18 @@ public class USRG
             event.getRegistry().register(new BlockItem(ModBlocks.SANDGENERATOR, properties).setRegistryName("sandgenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.SNOWGENERATOR, properties).setRegistryName("snowgenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.SOULGENERATOR, properties).setRegistryName("soulgenerator"));
-            event.getRegistry().register(new BlockItem(ModBlocks.OREGENERATOR, properties).setRegistryName("oregenerator"));
-            
-        	LOGGER.info("USRG - Vanilla Generator items registered");
+
+            LOGGER.info("USRG - Vanilla Generator items registered");
+
+            if (Config.ENABLE_ORE_GENERATOR.get()) {
+                event.getRegistry().register(new BlockItem(ModBlocks.OREGENERATOR, properties).setRegistryName("oregenerator"));
+                LOGGER.info("USRG - Ore Generator item registered");
+            }
+
+            if (Config.ENABLE_DYE_GENERATOR.get()) {
+                event.getRegistry().register(new BlockItem(ModBlocks.DYEGENERATOR, properties).setRegistryName("dyegenerator"));
+                LOGGER.info("USRG - Dye Generator item registered");
+            }
 
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
@@ -155,9 +173,18 @@ public class USRG
             event.getRegistry().register(TileEntityType.Builder.create(SandGeneratorTile::new, ModBlocks.SANDGENERATOR).build(null).setRegistryName("sandgenerator"));
             event.getRegistry().register(TileEntityType.Builder.create(SnowGeneratorTile::new, ModBlocks.SNOWGENERATOR).build(null).setRegistryName("snowgenerator"));
             event.getRegistry().register(TileEntityType.Builder.create(SoulGeneratorTile::new, ModBlocks.SOULGENERATOR).build(null).setRegistryName("soulgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(OreGeneratorTile::new, ModBlocks.OREGENERATOR).build(null).setRegistryName("oregenerator"));
-            
-        	LOGGER.info("USRG - Vanilla Generator tile entities registered");
+
+            LOGGER.info("USRG - Vanilla Generator tile entities registered");
+
+            if (Config.ENABLE_ORE_GENERATOR.get()) {
+                event.getRegistry().register(TileEntityType.Builder.create(OreGeneratorTile::new, ModBlocks.OREGENERATOR).build(null).setRegistryName("oregenerator"));
+                LOGGER.info("USRG - Ore Generator tile entity registered");
+            }
+
+            if (Config.ENABLE_DYE_GENERATOR.get()) {
+                event.getRegistry().register(TileEntityType.Builder.create(DyeGeneratorTile::new, ModBlocks.DYEGENERATOR).build(null).setRegistryName("dyegenerator"));
+                LOGGER.info("USRG - Dye Generator tile entity registered");
+            }
 
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
