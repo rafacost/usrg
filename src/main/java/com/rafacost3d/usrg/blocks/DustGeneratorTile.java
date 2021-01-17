@@ -24,6 +24,8 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class DustGeneratorTile extends TileEntity implements ITickableTileEntity {
 
+	public static final Block GENERATION_BLOCK = Blocks.SAND;
+
     private ItemStackHandler handler;
 
     private Integer tickcount = 0;
@@ -43,8 +45,7 @@ public class DustGeneratorTile extends TileEntity implements ITickableTileEntity
                 ItemStack stack = new ItemStack(block, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
             } else {
-            	Block block = Blocks.SAND;
-                ItemStack stack = new ItemStack(block, 1);
+                ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
             }    
             tickcount = 1;
@@ -66,7 +67,8 @@ public class DustGeneratorTile extends TileEntity implements ITickableTileEntity
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){

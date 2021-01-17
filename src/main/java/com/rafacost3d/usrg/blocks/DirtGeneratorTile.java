@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -21,8 +22,9 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class DirtGeneratorTile extends TileEntity implements ITickableTileEntity {
 
-    private ItemStackHandler handler;
+	public static final Block GENERATION_BLOCK = Blocks.DIRT;
 
+    private ItemStackHandler handler;
     private Integer tickcount = 0;
     private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
@@ -33,7 +35,7 @@ public class DirtGeneratorTile extends TileEntity implements ITickableTileEntity
     @Override
     public void tick() {
         if(tickcount % tickspergencycle == 0) {
-            ItemStack stack = new ItemStack(Blocks.DIRT, 1);
+            ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
             ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
             tickcount = 1;
         }
@@ -61,7 +63,8 @@ public class DirtGeneratorTile extends TileEntity implements ITickableTileEntity
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){

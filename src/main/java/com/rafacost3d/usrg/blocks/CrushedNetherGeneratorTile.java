@@ -24,8 +24,9 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class CrushedNetherGeneratorTile extends TileEntity implements ITickableTileEntity {
 
-    private ItemStackHandler handler;
+	public static final Block GENERATION_BLOCK = Blocks.NETHERRACK;
 
+    private ItemStackHandler handler;
     private Integer tickcount = 0;
     private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
@@ -43,8 +44,7 @@ public class CrushedNetherGeneratorTile extends TileEntity implements ITickableT
                 ItemStack stack = new ItemStack(block, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
             } else {
-            	Block block = Blocks.NETHERRACK;
-                ItemStack stack = new ItemStack(block, 1);
+                ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
                 ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
             }
             tickcount = 1;
@@ -73,7 +73,8 @@ public class CrushedNetherGeneratorTile extends TileEntity implements ITickableT
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){

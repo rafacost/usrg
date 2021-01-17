@@ -1,9 +1,8 @@
 package com.rafacost3d.usrg.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -23,8 +22,9 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.COBBLEGENERATOR_TILE;
 
 public class CobblestoneGeneratorTile extends TileEntity implements ITickableTileEntity {
 
+	public static final Block GENERATION_BLOCK = Blocks.COBBLESTONE;
+	
     private ItemStackHandler handler;
-
     private Integer tickcount = 0;
     private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
 
@@ -35,7 +35,7 @@ public class CobblestoneGeneratorTile extends TileEntity implements ITickableTil
     @Override
     public void tick() {
         if(tickcount % tickspergencycle == 0) {
-            ItemStack stack = new ItemStack(Blocks.COBBLESTONE, 1);
+            ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
             ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
             tickcount = 1;
         }
@@ -63,7 +63,8 @@ public class CobblestoneGeneratorTile extends TileEntity implements ITickableTil
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){

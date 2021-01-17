@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -21,6 +22,8 @@ import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class SoulGeneratorTile extends TileEntity implements ITickableTileEntity {
 
+	public static final Block GENERATION_BLOCK = Blocks.SOUL_SAND;
+
     private ItemStackHandler handler;
 
     private Integer tickcount = 0;
@@ -33,7 +36,7 @@ public class SoulGeneratorTile extends TileEntity implements ITickableTileEntity
     @Override
     public void tick() {
         if(tickcount % tickspergencycle == 0) {
-            ItemStack stack = new ItemStack(Blocks.SOUL_SAND, 1);
+            ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
             ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
             tickcount = 1;
         }
@@ -61,7 +64,8 @@ public class SoulGeneratorTile extends TileEntity implements ITickableTileEntity
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){

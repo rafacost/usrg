@@ -16,9 +16,6 @@ import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -26,13 +23,11 @@ import java.util.HashMap;
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class OreGeneratorTile extends TileEntity implements ITickableTileEntity {
-
-    private static final Logger LOGGER = LogManager.getLogger();
-
-    private ItemStackHandler handler;
+	
     private HashMap<Integer, Item> oreItems = new HashMap<Integer, Item>();
     private HashMap<Integer, Integer> oreProbs = new HashMap<Integer, Integer>();
 
+    private ItemStackHandler handler;
     private Integer tickcount = 0;
     private Integer tickspergencycle = Config.BLOCK_PER_TICK.get();
     
@@ -173,7 +168,8 @@ public class OreGeneratorTile extends TileEntity implements ITickableTileEntity 
         return handler;
     }
 
-    @Nonnull
+    @SuppressWarnings("unchecked")
+	@Nonnull
     @Override
     public <T>LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
