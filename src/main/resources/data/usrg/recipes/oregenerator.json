@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "qwe",
+    "asd",
+    "zxc"
+  ],
+  "key": {
+    "q": {
+      "item": "usrg:claygenerator"
+    },
+    "w": {
+      "item": "usrg:dirtgenerator"
+    },
+    "e": {
+      "item": "usrg:grassgenerator"
+    },
+    "a": {
+      "item": "usrg:cobblegenerator"
+    },
+    "s": {
+      "item": "usrg:icegenerator"
+    },
+    "d": {
+      "item": "usrg:obsidiangenerator"
+    },
+    "z": {
+      "item": "usrg:nethergenerator"
+    },
+    "x": {
+      "item": "usrg:soulgenerator"
+    },
+    "c": {
+      "item": "usrg:redstonegenerator"
+    }
+  },
+  "result": {
+    "item": "usrg:oregenerator"
+  }
+}
