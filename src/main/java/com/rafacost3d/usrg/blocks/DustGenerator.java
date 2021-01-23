@@ -3,8 +3,6 @@ package com.rafacost3d.usrg.blocks;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.util.InputMappings;
@@ -25,10 +23,7 @@ import java.util.List;
 
 public class DustGenerator extends BaseGenerator {
     public DustGenerator(){
-        super(Properties.create(Material.ROCK)
-                .sound(SoundType.STONE)
-                .hardnessAndResistance(2.0f)
-        );
+        super();
         setRegistryName("dustgenerator");
     }
 

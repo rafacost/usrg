@@ -2,8 +2,6 @@ package com.rafacost3d.usrg.blocks;
 
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.util.InputMappings;
@@ -22,10 +20,7 @@ import java.util.List;
 
 public class OreGenerator extends BaseGenerator {
     public OreGenerator(){
-        super(Properties.create(Material.IRON)
-                .sound(SoundType.ANVIL)
-                .hardnessAndResistance(4.0f)
-        );
+        super();
         setRegistryName("oregenerator");
     }
 

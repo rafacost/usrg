@@ -1,37 +1,28 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "qwe",
-    "asd",
-    "zxc"
+    "STS",
+    "W#L",
+    "SGS"
   ],
   "key": {
-    "q": {
-      "item": "usrg:claygenerator"
+    "S": {
+      "item": "minecraft:stone_bricks"
     },
-    "w": {
-      "item": "usrg:dirtgenerator"
+    "T": {
+      "item": "minecraft:netherite_block"
     },
-    "e": {
-      "item": "usrg:grassgenerator"
+    "W": {
+      "item": "minecraft:water_bucket"
     },
-    "a": {
-      "item": "usrg:cobblegenerator"
+    "L": {
+      "item": "minecraft:lava_bucket"
     },
-    "s": {
-      "item": "usrg:icegenerator"
+    "G": {
+      "tag": "forge:glass/colorless"
     },
-    "d": {
-      "item": "usrg:obsidiangenerator"
-    },
-    "z": {
-      "item": "usrg:nethergenerator"
-    },
-    "x": {
-      "item": "usrg:soulgenerator"
-    },
-    "c": {
-      "item": "usrg:redstonegenerator"
+    "#": {
+      "tag": "forge:ores/diamond"
     }
   },
   "result": {
