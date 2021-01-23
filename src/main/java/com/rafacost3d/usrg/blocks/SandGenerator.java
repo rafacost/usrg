@@ -20,7 +20,7 @@ import java.util.List;
 
 public class SandGenerator extends BaseGenerator {
     public SandGenerator(){
-        super();
+        super(15); // set to 15 as this generator uses lava
         setRegistryName("sandgenerator");
     }
 

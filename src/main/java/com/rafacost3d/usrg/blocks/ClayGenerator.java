@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ClayGenerator extends BaseGenerator {
     public ClayGenerator(){
-        super();
+        super(8); // set to 8 as this generator only uses water
         setRegistryName("claygenerator");
     }
 

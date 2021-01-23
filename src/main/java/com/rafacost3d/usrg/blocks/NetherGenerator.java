@@ -20,7 +20,7 @@ import java.util.List;
 
 public class NetherGenerator extends BaseGenerator {
     public NetherGenerator(){
-        super();
+        super(15); // set to 15 as this generator uses lava
         setRegistryName("nethergenerator");
     }
 

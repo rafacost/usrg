@@ -20,7 +20,7 @@ import java.util.List;
 
 public class GlowstoneGenerator extends BaseGenerator {
     public GlowstoneGenerator(){
-        super();
+        super(15); // set to 15 as this generator uses lava
         setRegistryName("glowstonegenerator");
     }
 

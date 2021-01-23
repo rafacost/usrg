@@ -17,10 +17,12 @@ public class BaseGenerator extends Block {
             makeCuboidShape(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
             IBooleanFunction.OR);
 
-    public BaseGenerator() {
-        super(Properties.create(Material.GLASS)
+    public BaseGenerator(int lightLevel) {
+        super(Properties.create(Material.GLASS) // Material.GLASS is required to help with the neighbor block rendering through the glass
                 .sound(SoundType.STONE)
-                .hardnessAndResistance(2.0f));
+                .hardnessAndResistance(2.0f)
+                .setLightLevel((light) -> lightLevel)
+        );
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.util.List;
 
 public class RedstoneGenerator extends BaseGenerator {
     public RedstoneGenerator(){
-        super();
+        super(15); // set to 15 as this generator uses lava
         setRegistryName("redstonegenerator");
     }
 

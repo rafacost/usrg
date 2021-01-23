@@ -3,6 +3,8 @@
 	"textures": {
 		"resource_side": "minecraft:block/clay",
 		"resource_up": "minecraft:block/clay",
-		"resource_down": "minecraft:block/clay"
+		"resource_down": "minecraft:block/clay",
+		"fluida": "usrg:block/water_still",
+		"fluidb": "usrg:block/water_still"
 	}
 }

@@ -20,7 +20,7 @@ import java.util.List;
 
 public class FungusGenerator extends BaseGenerator {
     public FungusGenerator(){
-        super();
+        super(8); // set to 8 as this generator only uses water
         setRegistryName("fungusgenerator");
     }
 

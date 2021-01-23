@@ -20,7 +20,7 @@ import java.util.List;
 
 public class IceGenerator extends BaseGenerator {
     public IceGenerator(){
-        super();
+        super(8); // set to 8 as this generator only uses water
         setRegistryName("icegenerator");
     }
 

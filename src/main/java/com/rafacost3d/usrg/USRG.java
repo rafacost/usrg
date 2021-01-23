@@ -4,6 +4,8 @@ import com.rafacost3d.usrg.blocks.*;
 import com.rafacost3d.usrg.setup.Config;
 import com.rafacost3d.usrg.setup.ModSetup;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
@@ -13,6 +15,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
@@ -33,10 +36,54 @@ public class USRG
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 
         //Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("usrg-client.toml"));
         Config.loadConfig(Config.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("usrg-common.toml"));
 
+    }
+
+    private void setupClient(final FMLClientSetupEvent event) {
+        // the following is required to help with the glass transparency
+        RenderTypeLookup.setRenderLayer(ModBlocks.COBBLEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.CLAYGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.DIRTGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.ENDGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.FUNGUSGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GLOWSTONEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GRASSGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GRAVELGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.ICEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.NETHERGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.OBSIDIANGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.QUARTZGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.REDSTONEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SANDGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SNOWGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SOULGENERATOR, RenderType.getCutout());
+
+        if (Config.ENABLE_ORE_GENERATOR.get()) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.OREGENERATOR, RenderType.getCutout());
+        }
+
+        if (Config.ENABLE_DYE_GENERATOR.get()) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.DYEGENERATOR, RenderType.getCutout());
+        }
+
+        ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.DUSTGENERATOR, RenderType.getCutout());
+        }
+
+        key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.ENDCRUSHEDGENERATOR, RenderType.getCutout());
+        }
+
+        key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.NETHERCRUSHEDGENERATOR, RenderType.getCutout());
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event) {

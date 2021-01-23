@@ -23,7 +23,7 @@ import java.util.List;
 
 public class CrushedNetherGenerator extends BaseGenerator {
     public CrushedNetherGenerator(){
-        super();
+        super(15); // set to 15 as this generator uses lava
         setRegistryName("nethercrushedgenerator");
     }
 

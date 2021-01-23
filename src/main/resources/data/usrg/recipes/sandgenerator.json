@@ -22,7 +22,7 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:sand"
+		"tag": "forge:sand/colorless"
 	}
   },
   "result": {

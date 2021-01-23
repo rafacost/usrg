@@ -15,7 +15,5 @@ public class ModSetup {
 
     };
 
-    public void init(){
-
-    }
+    public void init() { }
 }

@@ -3,6 +3,8 @@
 	"textures": {
 		"resource_side": "minecraft:block/mycelium_side",
 		"resource_up": "minecraft:block/mycelium_top",
-		"resource_down": "minecraft:block/dirt"
+		"resource_down": "minecraft:block/dirt",
+		"fluida": "usrg:block/water_still",
+		"fluidb": "usrg:block/water_still"
 	}
 }
