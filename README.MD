@@ -25,7 +25,6 @@ USRG has 18 vanilla generators:
   <li>Snow</li>
   <li>Soul Sand</li>
 </ul>
-All generator recipes are unlocked when new player joins world.<br/>
 <hr/>
 USRG has 3 ExNihilo: Sequentia generators:
 <ul>
