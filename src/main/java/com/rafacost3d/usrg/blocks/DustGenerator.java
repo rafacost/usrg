@@ -23,7 +23,7 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class DustGenerator extends Block {
+public class DustGenerator extends BaseGenerator {
     public DustGenerator(){
         super(Properties.create(Material.ROCK)
                 .sound(SoundType.STONE)

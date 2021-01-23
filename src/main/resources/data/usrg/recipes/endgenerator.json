@@ -1,22 +1,29 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ppp",
-    "lcl",
-    "ppp"
+    "STS",
+    "L#L",
+    "SGS"
   ],
   "key": {
-    "p": {
-      "item": "minecraft:diamond_pickaxe"
-    },
-    "c": {
-      "item": "minecraft:ender_pearl"
-    },
-    "l": {
-      "item": "minecraft:lava_bucket"
-    }
+	"S": {
+		"item": "minecraft:stone_bricks"
+	},
+	"T": {
+		"item": "minecraft:diamond_block"
+	},
+	"L": {
+		"item": "minecraft:lava_bucket"
+	},
+	"G": {
+		"tag": "forge:glass/colorless"
+	},
+	"#": {
+		"item": "minecraft:ender_pearl"
+	}
   },
   "result": {
     "item": "usrg:endgenerator"
-  }
+  },
+  "group": "usrg"
 }

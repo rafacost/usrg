@@ -23,7 +23,7 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class CrushedEndstoneGenerator extends Block {
+public class CrushedEndstoneGenerator extends BaseGenerator {
     public CrushedEndstoneGenerator(){
         super(Properties.create(Material.ROCK)
                 .sound(SoundType.STONE)

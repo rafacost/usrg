@@ -23,7 +23,7 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class CrushedNetherGenerator extends Block {
+public class CrushedNetherGenerator extends BaseGenerator {
     public CrushedNetherGenerator(){
         super(Properties.create(Material.ROCK)
                 .sound(SoundType.STONE)

@@ -1,22 +1,29 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ppp",
-    "lcl",
-    "ppp"
+    "STS",
+    "L#L",
+    "SGS"
   ],
   "key": {
-    "p": {
-      "item": "minecraft:diamond_shovel"
-    },
-    "c": {
-      "item": "minecraft:soul_sand"
-    },
-    "l": {
-      "item": "minecraft:lava_bucket"
-    }
+	"S": {
+		"item": "minecraft:stone_bricks"
+	},
+	"T": {
+		"item": "minecraft:diamond_block"
+	},
+	"L": {
+		"item": "minecraft:lava_bucket"
+	},
+	"G": {
+		"tag": "forge:glass/colorless"
+	},
+	"#": {
+		"item": "minecraft:soul_sand"
+	}
   },
   "result": {
     "item": "usrg:soulgenerator"
-  }
+  },
+  "group": "usrg"
 }

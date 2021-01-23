@@ -1,26 +1,32 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ppp",
-    "lcw",
-    "ppp"
+    "STS",
+    "W#L",
+    "SGS"
   ],
   "key": {
-    "p": {
-      "item": "minecraft:golden_shovel"
-    },
-    "c": {
-      "item": "minecraft:dirt",
-      "data": 0
-    },
-    "l": {
-      "item": "minecraft:lava_bucket"
-    },
-    "w": {
-      "item": "minecraft:water_bucket"
-    }
+	"S": {
+		"item": "minecraft:stone_bricks"
+	},
+	"T": {
+		"item": "minecraft:gold_block"
+	},
+	"W": {
+		"item": "minecraft:water_bucket"
+	},
+	"L": {
+		"item": "minecraft:lava_bucket"
+	},
+	"G": {
+		"tag": "forge:glass/colorless"
+	},
+	"#": {
+		"item": "minecraft:dirt"
+	}
   },
   "result": {
     "item": "usrg:grassgenerator"
-  }
+  },
+  "group": "usrg"
 }

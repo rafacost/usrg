@@ -1,7 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
 import com.rafacost3d.usrg.setup.Config;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -21,7 +20,7 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ClayGenerator extends Block {
+public class ClayGenerator extends BaseGenerator {
     public ClayGenerator(){
         super(Properties.create(Material.ROCK)
                 .sound(SoundType.STONE)

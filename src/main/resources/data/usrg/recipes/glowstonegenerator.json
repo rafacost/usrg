@@ -1,22 +1,29 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ppp",
-    "lcl",
-    "ppp"
+    "STS",
+    "L#L",
+    "SGS"
   ],
   "key": {
-    "p": {
-      "item": "minecraft:golden_pickaxe"
-    },
-    "c": {
-      "item": "minecraft:glowstone_dust"
-    },
-    "l": {
-      "item": "minecraft:lava_bucket"
-    }
+	"S": {
+		"item": "minecraft:stone_bricks"
+	},
+	"T": {
+		"item": "minecraft:gold_block"
+	},
+	"L": {
+		"item": "minecraft:lava_bucket"
+	},
+	"G": {
+		"tag": "forge:glass/colorless"
+	},
+	"#": {
+		"item": "minecraft:glowstone_dust"
+	}
   },
   "result": {
     "item": "usrg:glowstonegenerator"
-  }
+  },
+  "group": "usrg"
 }

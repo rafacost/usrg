@@ -1,22 +1,29 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "ppp",
-    "wcw",
-    "ppp"
+    "STS",
+    "W#W",
+    "SGS"
   ],
   "key": {
-    "p": {
-      "item": "minecraft:diamond_shovel"
-    },
-    "c": {
-      "item": "minecraft:snowball"
-    },
-    "w": {
-      "item": "minecraft:water_bucket"
-    }
+	"S": {
+		"item": "minecraft:stone_bricks"
+	},
+	"T": {
+		"item": "minecraft:diamond_block"
+	},
+	"W": {
+		"item": "minecraft:water_bucket"
+	},
+	"G": {
+		"tag": "forge:glass/colorless"
+	},
+	"#": {
+		"item": "minecraft:snowball"
+	}
   },
   "result": {
     "item": "usrg:snowgenerator"
-  }
+  },
+  "group": "usrg"
 }
