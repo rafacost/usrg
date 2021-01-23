@@ -1,33 +1,31 @@
 package com.rafacost3d.usrg;
 
 import com.rafacost3d.usrg.blocks.*;
-import com.rafacost3d.usrg.blocks.ModBlocks;
-import com.rafacost3d.usrg.setup.*;
+import com.rafacost3d.usrg.setup.Config;
+import com.rafacost3d.usrg.setup.ModSetup;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 
 @Mod("usrg")
 public class USRG
 {
-    public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
-
     public static ModSetup setup = new ModSetup();
 
     private static final Logger LOGGER = LogManager.getLogger();
@@ -38,23 +36,65 @@ public class USRG
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
 
-        Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("usrg-client.toml"));
+        //Config.loadConfig(Config.CLIENT_CONFIG, FMLPaths.CONFIGDIR.get().resolve("usrg-client.toml"));
         Config.loadConfig(Config.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("usrg-common.toml"));
 
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
+    private void setupClient(final FMLClientSetupEvent event) {
+        // the following is required to help with the glass transparency
+        RenderTypeLookup.setRenderLayer(ModBlocks.COBBLEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.CLAYGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.DIRTGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.ENDGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.FUNGUSGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GLOWSTONEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GRASSGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.GRAVELGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.ICEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.NETHERGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.OBSIDIANGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.QUARTZGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.REDSTONEGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SANDGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SNOWGENERATOR, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(ModBlocks.SOULGENERATOR, RenderType.getCutout());
+
+        if (Config.ENABLE_ORE_GENERATOR.get()) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.OREGENERATOR, RenderType.getCutout());
+        }
+
+        if (Config.ENABLE_DYE_GENERATOR.get()) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.DYEGENERATOR, RenderType.getCutout());
+        }
+
+        ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.DUSTGENERATOR, RenderType.getCutout());
+        }
+
+        key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.ENDCRUSHEDGENERATOR, RenderType.getCutout());
+        }
+
+        key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            RenderTypeLookup.setRenderLayer(ModBlocks.NETHERCRUSHEDGENERATOR, RenderType.getCutout());
+        }
+    }
+
+    private void setup(final FMLCommonSetupEvent event) {
         setup.init();
-        proxy.init();
     }
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
+
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-            LOGGER.info("USRG_DEBUG");
             event.getRegistry().register(new CobblestoneGenerator());
             event.getRegistry().register(new ClayGenerator());
             event.getRegistry().register(new DirtGenerator());
@@ -87,19 +127,19 @@ public class USRG
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(new DustGenerator());
-            	LOGGER.info("Ex Nihilo: Sequentia - Dust Generator block registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Dust Generator block registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(new CrushedEndstoneGenerator());
-            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Endstone Generator block registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Endstone Generator block registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(new CrushedNetherGenerator());
-            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Netherrack Generator block registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Netherrack Generator block registered");
             }
         }
 
@@ -107,6 +147,7 @@ public class USRG
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             Item.Properties properties = new Item.Properties()
                     .group(setup.itemGroup);
+
             event.getRegistry().register(new BlockItem(ModBlocks.COBBLEGENERATOR, properties).setRegistryName("cobblegenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.CLAYGENERATOR, properties).setRegistryName("claygenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.DIRTGENERATOR, properties).setRegistryName("dirtgenerator"));
@@ -139,19 +180,19 @@ public class USRG
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(new BlockItem(ModBlocks.DUSTGENERATOR, properties).setRegistryName("dustgenerator"));
-            	LOGGER.info("Ex Nihilo: Sequentia - Dust Generator item registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Dust Generator item registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(new BlockItem(ModBlocks.ENDCRUSHEDGENERATOR, properties).setRegistryName("endcrushedgenerator"));
-            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Endstone Generator item registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Endstone Generator item registered");
             } 
 
             key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(new BlockItem(ModBlocks.NETHERCRUSHEDGENERATOR, properties).setRegistryName("nethercrushedgenerator"));
-            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Netherrack Generator item registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Netherrack Generator item registered");
             }       
         }
 
@@ -189,20 +230,21 @@ public class USRG
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(TileEntityType.Builder.create(DustGeneratorTile::new, ModBlocks.DUSTGENERATOR).build(null).setRegistryName("dustgenerator"));
-            	LOGGER.info("Ex Nihilo: Sequentia - Dust Generator tile entity registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Dust Generator tile entity registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(TileEntityType.Builder.create(CrushedEndstoneGeneratorTile::new, ModBlocks.ENDCRUSHEDGENERATOR).build(null).setRegistryName("endcrushedgenerator"));
-            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Endstone Generator tile entity registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Endstone Generator tile entity registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
             	event.getRegistry().register(TileEntityType.Builder.create(CrushedNetherGeneratorTile::new, ModBlocks.NETHERCRUSHEDGENERATOR).build(null).setRegistryName("nethercrushedgenerator"));
-            	LOGGER.info("Ex Nihilo: Sequentia - Crushed Netherrack Generator tile entity registered");
+            	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Netherrack Generator tile entity registered");
             }
         }
+
     }
 }

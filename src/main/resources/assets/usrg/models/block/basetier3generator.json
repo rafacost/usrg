@@ -1,0 +1,6 @@
+{
+	"parent": "usrg:block/basegenerator",
+	"textures": {
+		"tier": "minecraft:block/diamond_block"
+	}
+}

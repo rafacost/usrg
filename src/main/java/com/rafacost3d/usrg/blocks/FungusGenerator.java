@@ -1,10 +1,7 @@
 package com.rafacost3d.usrg.blocks;
 
 import com.rafacost3d.usrg.setup.Config;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.util.InputMappings;
@@ -21,12 +18,9 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FungusGenerator extends Block {
+public class FungusGenerator extends BaseGenerator {
     public FungusGenerator(){
-        super(Properties.create(Material.ROCK)
-                .sound(SoundType.STONE)
-                .hardnessAndResistance(2.0f)
-        );
+        super(8); // set to 8 as this generator only uses water
         setRegistryName("fungusgenerator");
     }
 

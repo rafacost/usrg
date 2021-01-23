@@ -1,10 +1,7 @@
 package com.rafacost3d.usrg.blocks;
 
 import com.rafacost3d.usrg.setup.Config;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.util.InputMappings;
@@ -21,12 +18,9 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class SoulGenerator extends Block {
+public class SoulGenerator extends BaseGenerator {
     public SoulGenerator(){
-        super(Properties.create(Material.ROCK)
-                .sound(SoundType.STONE)
-                .hardnessAndResistance(2.0f)
-        );
+        super(15); // set to 15 as this generator uses lava
         setRegistryName("soulgenerator");
     }
 
