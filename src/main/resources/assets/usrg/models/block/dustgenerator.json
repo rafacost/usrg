@@ -1,5 +1,5 @@
 {
-	"parent": "usrg:block/basetier1generator",
+	"parent": "usrg:block/basetier2generator",
 	"textures": {
 		"resource_side": "exnihilosequentia:block/dust",
 		"resource_up": "exnihilosequentia:block/dust",
