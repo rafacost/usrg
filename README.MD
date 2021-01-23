@@ -28,12 +28,12 @@ USRG has 18 vanilla generators:
 <hr/>
 USRG has 3 ExNihilo: Sequentia generators:
 <ul>
-  <li>Dust<sup>1</sup></li>
-  <li>Crushed Endstone<sup>1</sup></li>
-  <li>Crushed Netherrack<sup>1</sup></li>
+  <li>Dust</li>
+  <li>Crushed Endstone</li>
+  <li>Crushed Netherrack></li>
 </ul>
 <small>
-<sup>1</sup> ExNihilo: Sequentia must be present to activate the Dust, Crushed Endstone and Crushed Netherrack generator recipes.
+ExNihilo: Sequentia must be present to activate the Dust, Crushed Endstone and Crushed Netherrack generator recipes.
 <hr/>
 All generator recipes are unlocked when new player joins world.<br/>
 </small>
