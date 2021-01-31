@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/nethergenerator"}
+    "facing=north": { "model": "usrg:block/nethergenerator" },
+    "facing=east":  { "model": "usrg:block/nethergenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/nethergenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/nethergenerator", "y": 270 }
   }
 }

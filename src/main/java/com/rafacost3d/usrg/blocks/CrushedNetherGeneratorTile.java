@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class CrushedNetherGeneratorTile extends BaseGeneratorTile {
 
+    public static final String RESOURCE_KEY = "exnihilosequentia:crushed_netherrack";
 	public static final Block GENERATION_BLOCK = Blocks.NETHERRACK;
 
     public CrushedNetherGeneratorTile() {
@@ -18,21 +18,25 @@ public class CrushedNetherGeneratorTile extends BaseGeneratorTile {
     }
 
     @Override
-    public void tick() {
-        if(tickcount % tickspergencycle == 0) {
-        	ResourceLocation key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
-        	
-            if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            	Block block = ForgeRegistries.BLOCKS.getValue(key);
-                ItemStack stack = new ItemStack(block, 1);
-                ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
-            } else {
-                ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
-                ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
-            }
-            tickcount = 1;
+    public ItemStack getGenerationDust() {
+        ResourceLocation key = new ResourceLocation(RESOURCE_KEY);
+
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            Block block = ForgeRegistries.BLOCKS.getValue(key);
+            return new ItemStack(block, itemsPerGenCycle);
         }
-        tickcount += 1;
+        return new ItemStack(GENERATION_BLOCK, itemsPerGenCycle);
+    }
+
+    @Override
+    public ItemStack getGenerationBlock() {
+        ResourceLocation key = new ResourceLocation(RESOURCE_KEY);
+
+        if (ForgeRegistries.BLOCKS.containsKey(key)) {
+            Block block = ForgeRegistries.BLOCKS.getValue(key);
+            return new ItemStack(block, itemsPerGenCycle);
+        }
+        return new ItemStack(GENERATION_BLOCK, itemsPerGenCycle);
     }
 
 }
