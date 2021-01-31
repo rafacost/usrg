@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/endcrushedgenerator"}
+    "facing=north": { "model": "usrg:block/endcrushedgenerator" },
+    "facing=east":  { "model": "usrg:block/endcrushedgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/endcrushedgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/endcrushedgenerator", "y": 270 }
   }
 }
