@@ -5,17 +5,11 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.HashMap;
 
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
-public class OreGeneratorTile extends BaseGeneratorTile {
-	
-    private HashMap<Integer, Item> oreItems = new HashMap<Integer, Item>();
-    private HashMap<Integer, Integer> oreProbs = new HashMap<Integer, Integer>();
+public class OreGeneratorTile extends BaseRandomGeneratorTile {
     
     public OreGeneratorTile() {
         super(OREGENERATOR_TILE);
@@ -45,92 +39,56 @@ public class OreGeneratorTile extends BaseGeneratorTile {
 			ResourceLocation resourceKey = new ResourceLocation(itemName);
 			if (ForgeRegistries.ITEMS.containsKey(resourceKey)) {
 				Item item = ForgeRegistries.ITEMS.getValue(resourceKey);
-				
-				oreItems.put(key, item);
-				oreProbs.put(key, (int)(probability * 100));
+
+                rndItems.put(key, item);
+                rndProbs.put(key, (int)(probability * 100));
 				key++;
 			}
         }
         
         if (key == 1) {
-        	oreItems.put(key, Items.COAL_ORE);
-            oreProbs.put(key++, (int)(0.50 * 100));
+            rndItems.put(key, Items.COAL_ORE);
+            rndProbs.put(key++, (int)(0.50 * 100));
 
-            oreItems.put(key, Items.IRON_ORE);
-            oreProbs.put(key++, (int)(0.45 * 100));
+            rndItems.put(key, Items.IRON_ORE);
+            rndProbs.put(key++, (int)(0.45 * 100));
 
-            oreItems.put(key, Items.GOLD_ORE);
-            oreProbs.put(key++, (int)(0.25 * 100));
+            rndItems.put(key, Items.GOLD_ORE);
+            rndProbs.put(key++, (int)(0.25 * 100));
 
-            oreItems.put(key, Items.LAPIS_ORE);
-            oreProbs.put(key++, (int)(0.10 * 100));
+            rndItems.put(key, Items.LAPIS_ORE);
+            rndProbs.put(key++, (int)(0.10 * 100));
 
-            oreItems.put(key, Items.REDSTONE_ORE);
-            oreProbs.put(key++, (int)(0.10 * 100));
-            
-            oreItems.put(key, Items.DIAMOND_ORE);
-            oreProbs.put(key++, (int)(0.05 * 100));
-            
-            oreItems.put(key, Items.EMERALD_ORE);
-            oreProbs.put(key++, (int)(0.01 * 100));
+            rndItems.put(key, Items.REDSTONE_ORE);
+            rndProbs.put(key++, (int)(0.10 * 100));
 
-            oreItems.put(key, Items.NETHER_QUARTZ_ORE);
-            oreProbs.put(key++, (int)(0.00 * 100));
+            rndItems.put(key, Items.DIAMOND_ORE);
+            rndProbs.put(key++, (int)(0.05 * 100));
+
+            rndItems.put(key, Items.EMERALD_ORE);
+            rndProbs.put(key++, (int)(0.01 * 100));
+
+            rndItems.put(key, Items.NETHER_QUARTZ_ORE);
+            rndProbs.put(key++, (int)(0.00 * 100));
     	}
-    }
-
-    static int findCeil(int arr[], int r, int l, int h) {
-        int mid;
-        
-        while (l < h) {
-            mid = l + ((h - l) >> 1);
-            if(r > arr[mid])
-                l = mid + 1;
-            else
-                h = mid;
-        }
-        
-        return (arr[l] >= r) ? l : -1;
-    }
-
-    static int myRand(int arr[]) {
-    	int n = arr.length;
-        int prefix[] = new int[n + 1];
-        
-        for (int i = 0; i < n; ++i) {
-            prefix[i + 1] = prefix[i] + arr[i];
-        }
-        
-        int r = ((int)(Math.random() * (323567)) % prefix[n]) + 1;
-
-        return findCeil(prefix, r, 0, n);
-    }
-
-    public Item rndOre(){
-    	int[] arr = new int[oreProbs.size()];
-    	int index = 0;
-    	
-    	for (int key = 1; key <= oreProbs.size(); key++) {
-    		if (oreProbs.containsKey(key)) {
-    			arr[index] = oreProbs.get(key);
-    		}
-    		index++;
-    	}
-    	
-        int key = myRand(arr);
-        return oreItems.get(key);
     }
 
     @Override
-    public void tick() {
-        if(tickcount % tickspergencycle == 0) {
-        	Item item = rndOre();
-        	if (item != null) {
-                ItemStack stack = new ItemStack(item, 1);
-                ItemHandlerHelper.insertItemStacked(getHandler(), stack, false);
-        	}
+    public ItemStack getGenerationDust() {
+        Item item = getRandomItem();
+        if (item != null) {
+            return new ItemStack(item, itemsPerGenCycle);
         }
-        tickcount += 1;
+        return null;
+    }
+
+    @Override
+    public ItemStack getGenerationBlock() {
+        Item item = getRandomItem();
+        if (item != null) {
+            return new ItemStack(item, itemsPerGenCycle);
+        }
+        return null;
     }
 
 }
