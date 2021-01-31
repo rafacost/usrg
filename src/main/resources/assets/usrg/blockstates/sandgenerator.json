@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/sandgenerator"}
+    "facing=north": { "model": "usrg:block/sandgenerator" },
+    "facing=east":  { "model": "usrg:block/sandgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/sandgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/sandgenerator", "y": 270 }
   }
 }

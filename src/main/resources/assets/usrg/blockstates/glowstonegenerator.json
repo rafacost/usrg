@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/glowstonegenerator"}
+    "facing=north": { "model": "usrg:block/glowstonegenerator" },
+    "facing=east":  { "model": "usrg:block/glowstonegenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/glowstonegenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/glowstonegenerator", "y": 270 }
   }
 }

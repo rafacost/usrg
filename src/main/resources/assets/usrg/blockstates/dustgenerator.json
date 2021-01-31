@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/dustgenerator"}
+    "facing=north": { "model": "usrg:block/dustgenerator" },
+    "facing=east":  { "model": "usrg:block/dustgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/dustgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/dustgenerator", "y": 270 }
   }
 }

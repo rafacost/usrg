@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/redstonegenerator"}
+    "facing=north": { "model": "usrg:block/redstonegenerator" },
+    "facing=east":  { "model": "usrg:block/redstonegenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/redstonegenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/redstonegenerator", "y": 270 }
   }
 }

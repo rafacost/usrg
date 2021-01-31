@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/snowgenerator"}
+    "facing=north": { "model": "usrg:block/snowgenerator" },
+    "facing=east":  { "model": "usrg:block/snowgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/snowgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/snowgenerator", "y": 270 }
   }
 }
