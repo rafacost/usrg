@@ -3,9 +3,8 @@ package com.rafacost3d.usrg.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.items.ItemHandlerHelper;
 
-import static com.rafacost3d.usrg.blocks.ModBlocks.COBBLEGENERATOR_TILE;
+import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class CobblestoneGeneratorTile extends BaseGeneratorTile {
 
@@ -16,13 +15,13 @@ public class CobblestoneGeneratorTile extends BaseGeneratorTile {
     }
 
     @Override
-    public void tick() {
-        if(tickcount % tickspergencycle == 0) {
-            ItemStack stack = new ItemStack(GENERATION_BLOCK, 1);
-            ItemHandlerHelper.insertItemStacked(getHandler(),stack, false);
-            tickcount = 1;
-        }
-        tickcount += 1;
+    public ItemStack getGenerationDust() {
+        return new ItemStack(GENERATION_BLOCK, itemsPerGenCycle);
+    }
+
+    @Override
+    public ItemStack getGenerationBlock() {
+        return new ItemStack(GENERATION_BLOCK, itemsPerGenCycle);
     }
 
 }
