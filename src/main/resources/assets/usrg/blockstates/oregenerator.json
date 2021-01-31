@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/oregenerator"}
+    "facing=north": { "model": "usrg:block/oregenerator" },
+    "facing=east":  { "model": "usrg:block/oregenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/oregenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/oregenerator", "y": 270 }
   }
 }
