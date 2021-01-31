@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/soulgenerator"}
+    "facing=north": { "model": "usrg:block/soulgenerator" },
+    "facing=east":  { "model": "usrg:block/soulgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/soulgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/soulgenerator", "y": 270 }
   }
 }

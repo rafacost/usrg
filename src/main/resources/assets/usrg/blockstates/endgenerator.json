@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/endgenerator"}
+    "facing=north": { "model": "usrg:block/endgenerator" },
+    "facing=east":  { "model": "usrg:block/endgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/endgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/endgenerator", "y": 270 }
   }
 }

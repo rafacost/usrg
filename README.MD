@@ -30,7 +30,7 @@ USRG has 3 ExNihilo: Sequentia generators:
 <ul>
   <li>Dust</li>
   <li>Crushed Endstone</li>
-  <li>Crushed Netherrack></li>
+  <li>Crushed Netherrack</li>
 </ul>
 <small>
 ExNihilo: Sequentia must be present to activate the Dust, Crushed Endstone and Crushed Netherrack generator recipes.
