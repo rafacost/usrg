@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/fungusgenerator"}
+    "facing=north": { "model": "usrg:block/fungusgenerator" },
+    "facing=east":  { "model": "usrg:block/fungusgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/fungusgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/fungusgenerator", "y": 270 }
   }
 }

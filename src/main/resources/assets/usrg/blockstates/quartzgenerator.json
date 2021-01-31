@@ -1,5 +1,8 @@
 {
   "variants": {
-    "": {"model": "usrg:block/quartzgenerator"}
+    "facing=north": { "model": "usrg:block/quartzgenerator" },
+    "facing=east":  { "model": "usrg:block/quartzgenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/quartzgenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/quartzgenerator", "y": 270 }
   }
 }
