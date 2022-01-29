@@ -1,8 +1,10 @@
 package com.rafacost3d.usrg.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemStack;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
@@ -10,8 +12,8 @@ public class SandGeneratorTile extends BaseGeneratorTile {
 
 	public static final Block GENERATION_BLOCK = Blocks.SAND;
 
-    public SandGeneratorTile() {
-        super(SANDGENERATOR_TILE);
+    public SandGeneratorTile(BlockPos pos, BlockState state) {
+        super(SANDGENERATOR_TILE, pos, state);
     }
 
     @Override

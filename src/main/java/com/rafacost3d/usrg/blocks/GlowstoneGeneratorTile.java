@@ -1,10 +1,12 @@
 package com.rafacost3d.usrg.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.state.BlockState;
 
 import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
@@ -13,8 +15,8 @@ public class GlowstoneGeneratorTile extends BaseGeneratorTile {
 	public static final Block GENERATION_BLOCK = Blocks.GLOWSTONE;
 	public static final Item GENERATION_ITEM = Items.GLOWSTONE_DUST;
 
-    public GlowstoneGeneratorTile() {
-        super(GLOWSTONEGENERATOR_TILE);
+    public GlowstoneGeneratorTile(BlockPos pos, BlockState state) {
+        super(GLOWSTONEGENERATOR_TILE, pos, state);
     }
 
     @Override

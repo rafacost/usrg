@@ -1,7 +1,9 @@
 package com.rafacost3d.usrg.blocks;
 
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.HashMap;
 
@@ -10,8 +12,8 @@ public abstract class BaseRandomGeneratorTile extends BaseGeneratorTile {
     protected HashMap<Integer, Item> rndItems = new HashMap<Integer, Item>();
     protected HashMap<Integer, Integer> rndProbs = new HashMap<Integer, Integer>();
 
-    public BaseRandomGeneratorTile(TileEntityType<?> tileEntityTypeIn) {
-        super(tileEntityTypeIn);
+    public BaseRandomGeneratorTile(BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
+        super(tileEntityTypeIn, pos, state);
     }
 
     protected static int findCeil(int arr[], int r, int l, int h) {

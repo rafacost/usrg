@@ -1,20 +1,20 @@
 package com.rafacost3d.usrg.blocks;
 
-import com.rafacost3d.usrg.setup.Config;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.world.item.TooltipFlag;
 import com.mojang.blaze3d.platform.InputConstants;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.entity.BlockEntity;
+import com.rafacost3d.usrg.setup.Config;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.lwjgl.glfw.GLFW;
@@ -22,10 +22,10 @@ import org.lwjgl.glfw.GLFW;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ObsidianGenerator extends BaseGenerator {
-    public ObsidianGenerator(){
+public class CleanGenerator extends BaseGenerator {
+    public CleanGenerator(){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("obsidiangenerator");
+        setRegistryName("cleangenerator");
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ObsidianGenerator extends BaseGenerator {
             if (information != null) {
                 String text = information.getString();
 
-                text = text.replace("{item}", ObsidianGeneratorTile.GENERATION_BLOCK.getName().getString());
+                text = text.replace("{item}", CleanGeneratorTile.GENERATION_BLOCK.getName().getString());
                 text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
 
                 tooltip.add(new TextComponent(text));
@@ -51,7 +51,7 @@ public class ObsidianGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new ObsidianGeneratorTile(pos, state);
+        return new CleanGeneratorTile(pos, state);
     }
 
     @Nullable
@@ -59,7 +59,7 @@ public class ObsidianGenerator extends BaseGenerator {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (!level.isClientSide) {
             return (level1, blockPos, blockState, t) -> {
-                if (t instanceof ObsidianGeneratorTile tile) {
+                if (t instanceof CleanGeneratorTile tile) {
                     tile.tickServer();
                 }
             };

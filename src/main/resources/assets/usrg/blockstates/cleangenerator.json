@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "usrg:block/cleangenerator" },
+    "facing=east":  { "model": "usrg:block/cleangenerator", "y": 90 },
+    "facing=south": { "model": "usrg:block/cleangenerator", "y": 180 },
+    "facing=west":  { "model": "usrg:block/cleangenerator", "y": 270 }
+  }
+}

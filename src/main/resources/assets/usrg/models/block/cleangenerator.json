@@ -1,0 +1,8 @@
+{
+	"parent": "usrg:block/basetier2generator",
+	"textures": {
+		"resource_side": "minecraft:block/stone",
+		"resource_up": "minecraft:block/stone",
+		"resource_down": "minecraft:block/stone"
+	}
+}

@@ -1,16 +1,20 @@
 package com.rafacost3d.usrg.blocks;
 
 import com.rafacost3d.usrg.setup.Config;
-import net.minecraft.block.BlockState;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.client.util.InputMappings;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.world.item.TooltipFlag;
+import com.mojang.blaze3d.platform.InputConstants;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.lwjgl.glfw.GLFW;
@@ -26,32 +30,40 @@ public class FungusGenerator extends BaseGenerator {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flags) {
+    public void appendHoverText(ItemStack stack, @Nullable BlockGetter worldIn, List<Component> tooltip, TooltipFlag flags) {
 
-        if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
-            TranslationTextComponent information = new TranslationTextComponent("block.generator.information");
+        if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
+            TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
             if (information != null) {
                 String text = information.getString();
 
-                text = text.replace("{item}", FungusGeneratorTile.GENERATION_BLOCK.getTranslatedName().getString());
+                text = text.replace("{item}", FungusGeneratorTile.GENERATION_BLOCK.getName().getString());
                 text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
 
-                tooltip.add(new StringTextComponent(text));
+                tooltip.add(new TextComponent(text));
             }
         } else {
-            tooltip.add(new TranslationTextComponent("block.holdshift.information"));
+            tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
-    }
-
-    @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
     }
 
     @Nullable
     @Override
-    public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new FungusGeneratorTile();
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new FungusGeneratorTile(pos, state);
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (!level.isClientSide) {
+            return (level1, blockPos, blockState, t) -> {
+                if (t instanceof FungusGeneratorTile tile) {
+                    tile.tickServer();
+                }
+            };
+        }
+        return null;
     }
 }

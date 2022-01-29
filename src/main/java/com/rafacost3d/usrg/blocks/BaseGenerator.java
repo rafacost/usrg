@@ -1,51 +1,55 @@
 package com.rafacost3d.usrg.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.PushReaction;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.StateContainer;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.PushReaction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.level.BlockGetter;
 
-public abstract class BaseGenerator extends HorizontalBlock {
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 
-    private static final VoxelShape RENDER_SHAPE = VoxelShapes.combineAndSimplify(
-            makeCuboidShape(0.0D,  0.0D, 0.0D, 16.0D,  4.0D, 16.0D),
-            makeCuboidShape(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
-            IBooleanFunction.OR);
+public abstract class BaseGenerator extends HorizontalDirectionalBlock implements EntityBlock {
+
+    private static final VoxelShape RENDER_SHAPE = Shapes.join(
+            box(0.0D,  0.0D, 0.0D, 16.0D,  4.0D, 16.0D),
+            box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
+            BooleanOp.OR);
 
     public BaseGenerator(int lightLevel) {
-        super(Properties.create(Material.GLASS) // Material.GLASS is required to help with the neighbor block rendering through the glass
+        super(Properties.of(Material.GLASS) // Material.GLASS is required to help with the neighbor block rendering through the glass
                 .sound(SoundType.STONE)
-                .hardnessAndResistance(2.0f)
-                .setLightLevel((light) -> lightLevel)
+                .strength(2.0f)
+                .lightLevel((light) -> lightLevel)
         );
     }
 
     @Override
-    public VoxelShape getRenderShape(BlockState state, IBlockReader worldIn, BlockPos pos) {
+    public VoxelShape getOcclusionShape(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return RENDER_SHAPE;
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(HORIZONTAL_FACING);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
     @Override
-    public PushReaction getPushReaction(BlockState state) {
+    public PushReaction getPistonPushReaction(BlockState state) {
         return PushReaction.BLOCK;
     }
 }
