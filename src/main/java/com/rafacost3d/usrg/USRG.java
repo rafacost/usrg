@@ -3,13 +3,13 @@ package com.rafacost3d.usrg;
 import com.rafacost3d.usrg.blocks.*;
 import com.rafacost3d.usrg.setup.Config;
 import com.rafacost3d.usrg.setup.ModSetup;
-import net.minecraft.block.Block;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -45,44 +45,45 @@ public class USRG
 
     private void setupClient(final FMLClientSetupEvent event) {
         // the following is required to help with the glass transparency
-        RenderTypeLookup.setRenderLayer(ModBlocks.COBBLEGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.CLAYGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.DIRTGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.ENDGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.FUNGUSGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.GLOWSTONEGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.GRASSGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.GRAVELGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.ICEGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.NETHERGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.OBSIDIANGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.QUARTZGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.REDSTONEGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SANDGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SNOWGENERATOR, RenderType.getCutout());
-        RenderTypeLookup.setRenderLayer(ModBlocks.SOULGENERATOR, RenderType.getCutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COBBLEGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLEANGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CLAYGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DIRTGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENDGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FUNGUSGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWSTONEGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GRASSGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.GRAVELGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.ICEGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OBSIDIANGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.QUARTZGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.REDSTONEGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SANDGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SNOWGENERATOR, RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOULGENERATOR, RenderType.cutout());
 
         if (Config.ENABLE_ORE_GENERATOR.get()) {
-            RenderTypeLookup.setRenderLayer(ModBlocks.OREGENERATOR, RenderType.getCutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.OREGENERATOR, RenderType.cutout());
         }
 
         if (Config.ENABLE_DYE_GENERATOR.get()) {
-            RenderTypeLookup.setRenderLayer(ModBlocks.DYEGENERATOR, RenderType.getCutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DYEGENERATOR, RenderType.cutout());
         }
 
         ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
         if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            RenderTypeLookup.setRenderLayer(ModBlocks.DUSTGENERATOR, RenderType.getCutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.DUSTGENERATOR, RenderType.cutout());
         }
 
         key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
         if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            RenderTypeLookup.setRenderLayer(ModBlocks.ENDCRUSHEDGENERATOR, RenderType.getCutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ENDCRUSHEDGENERATOR, RenderType.cutout());
         }
 
         key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
         if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            RenderTypeLookup.setRenderLayer(ModBlocks.NETHERCRUSHEDGENERATOR, RenderType.getCutout());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.NETHERCRUSHEDGENERATOR, RenderType.cutout());
         }
     }
 
@@ -96,6 +97,7 @@ public class USRG
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
             event.getRegistry().register(new CobblestoneGenerator());
+            event.getRegistry().register(new CleanGenerator());
             event.getRegistry().register(new ClayGenerator());
             event.getRegistry().register(new DirtGenerator());
             event.getRegistry().register(new EndstoneGenerator());
@@ -145,10 +147,10 @@ public class USRG
 
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
-            Item.Properties properties = new Item.Properties()
-                    .group(setup.itemGroup);
+            Item.Properties properties = new Item.Properties().tab(setup.itemGroup);
 
             event.getRegistry().register(new BlockItem(ModBlocks.COBBLEGENERATOR, properties).setRegistryName("cobblegenerator"));
+            event.getRegistry().register(new BlockItem(ModBlocks.CLEANGENERATOR, properties).setRegistryName("cleangenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.CLAYGENERATOR, properties).setRegistryName("claygenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.DIRTGENERATOR, properties).setRegistryName("dirtgenerator"));
             event.getRegistry().register(new BlockItem(ModBlocks.ENDGENERATOR, properties).setRegistryName("endgenerator"));
@@ -197,51 +199,52 @@ public class USRG
         }
 
         @SubscribeEvent
-        public static void onTileEntityRegistry(final RegistryEvent.Register<TileEntityType<?>> event) {
-            event.getRegistry().register(TileEntityType.Builder.create(CobblestoneGeneratorTile::new, ModBlocks.COBBLEGENERATOR).build(null).setRegistryName("cobblegenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(ClayGeneratorTile::new, ModBlocks.CLAYGENERATOR).build(null).setRegistryName("claygenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(DirtGeneratorTile::new, ModBlocks.DIRTGENERATOR).build(null).setRegistryName("dirtgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(EndstoneGeneratorTile::new, ModBlocks.ENDGENERATOR).build(null).setRegistryName("endgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(FungusGeneratorTile::new, ModBlocks.FUNGUSGENERATOR).build(null).setRegistryName("fungusgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(GlowstoneGeneratorTile::new, ModBlocks.GLOWSTONEGENERATOR).build(null).setRegistryName("glowstonegenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(GrassGeneratorTile::new, ModBlocks.GRASSGENERATOR).build(null).setRegistryName("grassgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(GravelGeneratorTile::new, ModBlocks.GRAVELGENERATOR).build(null).setRegistryName("gravelgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(IceGeneratorTile::new, ModBlocks.ICEGENERATOR).build(null).setRegistryName("icegenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(NetherGeneratorTile::new, ModBlocks.NETHERGENERATOR).build(null).setRegistryName("nethergenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(ObsidianGeneratorTile::new, ModBlocks.OBSIDIANGENERATOR).build(null).setRegistryName("obsidiangenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(QuartzGeneratorTile::new, ModBlocks.QUARTZGENERATOR).build(null).setRegistryName("quartzgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(RedstoneGeneratorTile::new, ModBlocks.REDSTONEGENERATOR).build(null).setRegistryName("redstonegenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(SandGeneratorTile::new, ModBlocks.SANDGENERATOR).build(null).setRegistryName("sandgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(SnowGeneratorTile::new, ModBlocks.SNOWGENERATOR).build(null).setRegistryName("snowgenerator"));
-            event.getRegistry().register(TileEntityType.Builder.create(SoulGeneratorTile::new, ModBlocks.SOULGENERATOR).build(null).setRegistryName("soulgenerator"));
+        public static void onTileEntityRegistry(final RegistryEvent.Register<BlockEntityType<?>> event) {
+            event.getRegistry().register(BlockEntityType.Builder.of(CleanGeneratorTile::new, ModBlocks.COBBLEGENERATOR).build(null).setRegistryName("cobblegenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(CleanGeneratorTile::new, ModBlocks.CLEANGENERATOR).build(null).setRegistryName("cleangenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(ClayGeneratorTile::new, ModBlocks.CLAYGENERATOR).build(null).setRegistryName("claygenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(DirtGeneratorTile::new, ModBlocks.DIRTGENERATOR).build(null).setRegistryName("dirtgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(EndstoneGeneratorTile::new, ModBlocks.ENDGENERATOR).build(null).setRegistryName("endgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(FungusGeneratorTile::new, ModBlocks.FUNGUSGENERATOR).build(null).setRegistryName("fungusgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(GlowstoneGeneratorTile::new, ModBlocks.GLOWSTONEGENERATOR).build(null).setRegistryName("glowstonegenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(GrassGeneratorTile::new, ModBlocks.GRASSGENERATOR).build(null).setRegistryName("grassgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(GravelGeneratorTile::new, ModBlocks.GRAVELGENERATOR).build(null).setRegistryName("gravelgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(IceGeneratorTile::new, ModBlocks.ICEGENERATOR).build(null).setRegistryName("icegenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(NetherGeneratorTile::new, ModBlocks.NETHERGENERATOR).build(null).setRegistryName("nethergenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(ObsidianGeneratorTile::new, ModBlocks.OBSIDIANGENERATOR).build(null).setRegistryName("obsidiangenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(QuartzGeneratorTile::new, ModBlocks.QUARTZGENERATOR).build(null).setRegistryName("quartzgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(RedstoneGeneratorTile::new, ModBlocks.REDSTONEGENERATOR).build(null).setRegistryName("redstonegenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(SandGeneratorTile::new, ModBlocks.SANDGENERATOR).build(null).setRegistryName("sandgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(SnowGeneratorTile::new, ModBlocks.SNOWGENERATOR).build(null).setRegistryName("snowgenerator"));
+            event.getRegistry().register(BlockEntityType.Builder.of(SoulGeneratorTile::new, ModBlocks.SOULGENERATOR).build(null).setRegistryName("soulgenerator"));
 
             LOGGER.info("USRG - Vanilla Generator tile entities registered");
 
             if (Config.ENABLE_ORE_GENERATOR.get()) {
-                event.getRegistry().register(TileEntityType.Builder.create(OreGeneratorTile::new, ModBlocks.OREGENERATOR).build(null).setRegistryName("oregenerator"));
+                event.getRegistry().register(BlockEntityType.Builder.of(OreGeneratorTile::new, ModBlocks.OREGENERATOR).build(null).setRegistryName("oregenerator"));
                 LOGGER.info("USRG - Ore Generator tile entity registered");
             }
 
             if (Config.ENABLE_DYE_GENERATOR.get()) {
-                event.getRegistry().register(TileEntityType.Builder.create(DyeGeneratorTile::new, ModBlocks.DYEGENERATOR).build(null).setRegistryName("dyegenerator"));
+                event.getRegistry().register(BlockEntityType.Builder.of(DyeGeneratorTile::new, ModBlocks.DYEGENERATOR).build(null).setRegistryName("dyegenerator"));
                 LOGGER.info("USRG - Dye Generator tile entity registered");
             }
 
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            	event.getRegistry().register(TileEntityType.Builder.create(DustGeneratorTile::new, ModBlocks.DUSTGENERATOR).build(null).setRegistryName("dustgenerator"));
+            	event.getRegistry().register(BlockEntityType.Builder.of(DustGeneratorTile::new, ModBlocks.DUSTGENERATOR).build(null).setRegistryName("dustgenerator"));
             	LOGGER.info("USRG - Ex Nihilo: Sequentia Dust Generator tile entity registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            	event.getRegistry().register(TileEntityType.Builder.create(CrushedEndstoneGeneratorTile::new, ModBlocks.ENDCRUSHEDGENERATOR).build(null).setRegistryName("endcrushedgenerator"));
+            	event.getRegistry().register(BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile::new, ModBlocks.ENDCRUSHEDGENERATOR).build(null).setRegistryName("endcrushedgenerator"));
             	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Endstone Generator tile entity registered");
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            	event.getRegistry().register(TileEntityType.Builder.create(CrushedNetherGeneratorTile::new, ModBlocks.NETHERCRUSHEDGENERATOR).build(null).setRegistryName("nethercrushedgenerator"));
+            	event.getRegistry().register(BlockEntityType.Builder.of(CrushedNetherGeneratorTile::new, ModBlocks.NETHERCRUSHEDGENERATOR).build(null).setRegistryName("nethercrushedgenerator"));
             	LOGGER.info("USRG - Ex Nihilo: Sequentia Crushed Netherrack Generator tile entity registered");
             }
         }

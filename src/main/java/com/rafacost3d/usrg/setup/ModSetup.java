@@ -1,15 +1,15 @@
 package com.rafacost3d.usrg.setup;
 
 import com.rafacost3d.usrg.blocks.ModBlocks;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 
 public class ModSetup {
 
-    public ItemGroup itemGroup = new ItemGroup("usrg") {
+    public CreativeModeTab itemGroup = new CreativeModeTab("usrg") {
 
         @Override
-        public ItemStack createIcon(){
+        public ItemStack makeIcon(){
             return new ItemStack(ModBlocks.COBBLEGENERATOR);
         }
 
