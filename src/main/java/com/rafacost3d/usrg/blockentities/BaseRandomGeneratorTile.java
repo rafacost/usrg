@@ -1,5 +1,6 @@
-package com.rafacost3d.usrg.blocks;
+package com.rafacost3d.usrg.blockentities;
 
+import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -12,8 +13,8 @@ public abstract class BaseRandomGeneratorTile extends BaseGeneratorTile {
     protected HashMap<Integer, Item> rndItems = new HashMap<Integer, Item>();
     protected HashMap<Integer, Integer> rndProbs = new HashMap<Integer, Integer>();
 
-    public BaseRandomGeneratorTile(BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
-        super(tileEntityTypeIn, pos, state);
+    public BaseRandomGeneratorTile(Config.Tiers tiers, BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
+        super(tiers, tileEntityTypeIn, pos, state);
     }
 
     protected static int findCeil(int arr[], int r, int l, int h) {

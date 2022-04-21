@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.EndstoneGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class EndstoneGenerator extends BaseGenerator {
-    public EndstoneGenerator(){
+    private final int tier;
+    public EndstoneGenerator(int Tier){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("endgenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -51,7 +53,7 @@ public class EndstoneGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new EndstoneGeneratorTile(pos, state);
+        return EndstoneGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

@@ -33,6 +33,7 @@ public abstract class BaseGenerator extends HorizontalDirectionalBlock implement
         );
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public VoxelShape getOcclusionShape(BlockState state, BlockGetter worldIn, BlockPos pos) {
         return RENDER_SHAPE;
@@ -48,6 +49,7 @@ public abstract class BaseGenerator extends HorizontalDirectionalBlock implement
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public PushReaction getPistonPushReaction(BlockState state) {
         return PushReaction.BLOCK;

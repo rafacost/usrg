@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.SnowGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class SnowGenerator extends BaseGenerator {
-    public SnowGenerator(){
+    private final int tier;
+
+    public SnowGenerator(int Tier){
         super(8); // set to 8 as this generator only uses water
-        setRegistryName("snowgenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -35,18 +38,16 @@ public class SnowGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
-            if (information != null) {
-                String text = information.getString();
+            String text = information.getString();
 
-                if (Config.GENERATE_DUST.get()) {
-                    text = text.replace("{item}", SnowGeneratorTile.GENERATION_ITEM.getDescription().getString());
-                } else {
-                    text = text.replace("{item}", SnowGeneratorTile.GENERATION_BLOCK.getName().getString());
-                }
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
-
-                tooltip.add(new TextComponent(text));
+            if (Config.GENERATE_DUST.get()) {
+                text = text.replace("{item}", SnowGeneratorTile.GENERATION_ITEM.getDescription().getString());
+            } else {
+                text = text.replace("{item}", SnowGeneratorTile.GENERATION_BLOCK.getName().getString());
             }
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -55,7 +56,7 @@ public class SnowGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new SnowGeneratorTile(pos, state);
+        return SnowGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

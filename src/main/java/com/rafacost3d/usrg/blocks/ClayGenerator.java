@@ -1,8 +1,11 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.ClayGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,30 +26,26 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ClayGenerator extends BaseGenerator {
-    public ClayGenerator(){
+    private final int tier;
+    public ClayGenerator(int Tier){
         super(8); // set to 8 as this generator only uses water
-        setRegistryName("claygenerator");
+        this.tier = Tier;
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter worldIn, List<Component> tooltip, TooltipFlag flags) {
-
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
-            TranslatableComponent information = new TranslatableComponent("block.generator.information");
+            String text = new TranslatableComponent("block.generator.information").getString();
 
-            if (information != null) {
-                String text = information.getString();
-
-                if (Config.GENERATE_DUST.get()) {
-                    text = text.replace("{item}", ClayGeneratorTile.GENERATION_ITEM.getDescription().getString());
-                } else {
-                    text = text.replace("{item}", ClayGeneratorTile.GENERATION_BLOCK.getName().getString());
-                }
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
-
-                tooltip.add(new TextComponent(text));
+            if (Config.GENERATE_DUST.get()) {
+                text = text.replace("{item}", Items.CLAY_BALL.getDescription().getString());
+            } else {
+                text = text.replace("{item}", Blocks.CLAY.getName().getString());
             }
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -55,7 +54,7 @@ public class ClayGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new ClayGeneratorTile(pos, state);
+        return ClayGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

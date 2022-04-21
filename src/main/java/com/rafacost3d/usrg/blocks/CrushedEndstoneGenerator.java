@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.CrushedEndstoneGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -26,9 +27,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class CrushedEndstoneGenerator extends BaseGenerator {
-    public CrushedEndstoneGenerator(){
+    private final int tier;
+    public CrushedEndstoneGenerator(int Tier){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("endcrushedgenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -38,20 +40,18 @@ public class CrushedEndstoneGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
-            if (information != null) {
-                ResourceLocation key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
-                String text = information.getString();
+            ResourceLocation key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+            String text = information.getString();
 
-                if (ForgeRegistries.BLOCKS.containsKey(key)) {
-                    Block block = ForgeRegistries.BLOCKS.getValue(key);
-                    text = text.replace("{item}", block.getName().getString());
-                } else {
-                    text = text.replace("{item}", CrushedEndstoneGeneratorTile.GENERATION_BLOCK.getName().getString());
-                }
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
-
-                tooltip.add(new TextComponent(text));
+            if (ForgeRegistries.BLOCKS.containsKey(key)) {
+                Block block = ForgeRegistries.BLOCKS.getValue(key);
+                text = text.replace("{item}", block.getName().getString());
+            } else {
+                text = text.replace("{item}", CrushedEndstoneGeneratorTile.GENERATION_BLOCK.getName().getString());
             }
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -60,7 +60,7 @@ public class CrushedEndstoneGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new CrushedEndstoneGeneratorTile(pos, state);
+        return CrushedEndstoneGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

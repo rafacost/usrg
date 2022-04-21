@@ -1,8 +1,10 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.CobblestoneGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,9 +25,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class CobblestoneGenerator extends BaseGenerator {
-    public CobblestoneGenerator(){
+    private final int tier;
+    public CobblestoneGenerator(int Tier){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("cobblegenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -35,14 +38,12 @@ public class CobblestoneGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
-            if (information != null) {
-                String text = information.getString();
+            String text = information.getString();
 
-                text = text.replace("{item}", CobblestoneGeneratorTile.GENERATION_BLOCK.getName().getString());
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+            text = text.replace("{item}", Blocks.COBBLESTONE.getName().getString());
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
 
-                tooltip.add(new TextComponent(text));
-            }
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -51,7 +52,7 @@ public class CobblestoneGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new CobblestoneGeneratorTile(pos, state);
+        return CobblestoneGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

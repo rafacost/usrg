@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.OreGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class OreGenerator extends BaseGenerator {
-    public OreGenerator(){
+    private final int tier;
+    public OreGenerator(int Tier){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("oregenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -35,13 +37,11 @@ public class OreGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.oregenerator.information");
 
-            if (information != null) {
-                String text = information.getString();
+            String text = information.getString();
 
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
 
-                tooltip.add(new TextComponent(text));
-            }
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -50,7 +50,7 @@ public class OreGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new OreGeneratorTile(pos, state);
+        return OreGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

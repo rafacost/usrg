@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.GlowstoneGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class GlowstoneGenerator extends BaseGenerator {
-    public GlowstoneGenerator(){
+    private final int tier;
+    public GlowstoneGenerator(int Tier){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("glowstonegenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -35,18 +37,16 @@ public class GlowstoneGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
-            if (information != null) {
-                String text = information.getString();
+            String text = information.getString();
 
-                if (Config.GENERATE_DUST.get()) {
-                    text = text.replace("{item}", GlowstoneGeneratorTile.GENERATION_ITEM.getDescription().getString());
-                } else {
-                    text = text.replace("{item}", GlowstoneGeneratorTile.GENERATION_BLOCK.getName().getString());
-                }
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
-
-                tooltip.add(new TextComponent(text));
+            if (Config.GENERATE_DUST.get()) {
+                text = text.replace("{item}", GlowstoneGeneratorTile.GENERATION_ITEM.getDescription().getString());
+            } else {
+                text = text.replace("{item}", GlowstoneGeneratorTile.GENERATION_BLOCK.getName().getString());
             }
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -55,7 +55,7 @@ public class GlowstoneGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new GlowstoneGeneratorTile(pos, state);
+        return GlowstoneGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable

@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.SoulsandGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,11 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class SoulGenerator extends BaseGenerator {
-    public SoulGenerator(){
+    private final int tier;
+
+    public SoulGenerator(int Tier){
         super(15); // set to 15 as this generator uses lava
-        setRegistryName("soulgenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -35,14 +38,12 @@ public class SoulGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
-            if (information != null) {
-                String text = information.getString();
+            String text = information.getString();
 
-                text = text.replace("{item}", SoulGeneratorTile.GENERATION_BLOCK.getName().getString());
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+            text = text.replace("{item}", SoulsandGeneratorTile.GENERATION_BLOCK.getName().getString());
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
 
-                tooltip.add(new TextComponent(text));
-            }
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -51,7 +52,7 @@ public class SoulGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new SoulGeneratorTile(pos, state);
+        return SoulsandGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable
@@ -59,7 +60,7 @@ public class SoulGenerator extends BaseGenerator {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         if (!level.isClientSide) {
             return (level1, blockPos, blockState, t) -> {
-                if (t instanceof SoulGeneratorTile tile) {
+                if (t instanceof SoulsandGeneratorTile tile) {
                     tile.tickServer();
                 }
             };

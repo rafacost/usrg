@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.blockentities.IceGeneratorTile;
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -23,9 +24,10 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class IceGenerator extends BaseGenerator {
-    public IceGenerator(){
+    private final int tier;
+    public IceGenerator(int Tier){
         super(8); // set to 8 as this generator only uses water
-        setRegistryName("icegenerator");
+        this.tier = Tier;
     }
 
     @Override
@@ -35,14 +37,12 @@ public class IceGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
 
-            if (information != null) {
-                String text = information.getString();
+            String text = information.getString();
 
-                text = text.replace("{item}", IceGeneratorTile.GENERATION_BLOCK.getName().getString());
-                text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+            text = text.replace("{item}", IceGeneratorTile.GENERATION_BLOCK.getName().getString());
+            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
 
-                tooltip.add(new TextComponent(text));
-            }
+            tooltip.add(new TextComponent(text));
         } else {
             tooltip.add(new TranslatableComponent("block.holdshift.information"));
         }
@@ -51,7 +51,7 @@ public class IceGenerator extends BaseGenerator {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new IceGeneratorTile(pos, state);
+        return IceGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable
