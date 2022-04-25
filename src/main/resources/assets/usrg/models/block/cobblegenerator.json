@@ -1,8 +1,0 @@
-{
-	"parent": "usrg:block/basetier1generator",
-	"textures": {
-		"resource_side": "minecraft:block/cobblestone",
-		"resource_up": "minecraft:block/cobblestone",
-		"resource_down": "minecraft:block/cobblestone"
-	}
-}

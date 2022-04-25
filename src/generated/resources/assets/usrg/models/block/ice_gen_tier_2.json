@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier2generator",
+  "textures": {
+    "resource_side": "minecraft:block/ice",
+    "resource_up": "minecraft:block/ice",
+    "resource_down": "minecraft:block/ice",
+    "fluida": "usrg:block/water_still",
+    "fluidb": "usrg:block/water_still"
+  }
+}

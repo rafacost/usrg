@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier4generator",
+  "textures": {
+    "resource_side": "minecraft:block/end_stone",
+    "resource_up": "minecraft:block/end_stone",
+    "resource_down": "minecraft:block/end_stone",
+    "fluida": "usrg:block/lava_still",
+    "fluidb": "usrg:block/lava_still"
+  }
+}

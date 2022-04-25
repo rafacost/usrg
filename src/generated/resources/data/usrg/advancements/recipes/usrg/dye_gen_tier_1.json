@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "usrg:dye_gen_tier_1"
+    ]
+  },
+  "criteria": {
+    "has_white_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:white_dye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "usrg:dye_gen_tier_1"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_white_dye",
+      "has_the_recipe"
+    ]
+  ]
+}

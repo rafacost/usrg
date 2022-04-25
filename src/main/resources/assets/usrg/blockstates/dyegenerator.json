@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "usrg:block/dyegenerator" },
-    "facing=east":  { "model": "usrg:block/dyegenerator", "y": 90 },
-    "facing=south": { "model": "usrg:block/dyegenerator", "y": 180 },
-    "facing=west":  { "model": "usrg:block/dyegenerator", "y": 270 }
-  }
-}

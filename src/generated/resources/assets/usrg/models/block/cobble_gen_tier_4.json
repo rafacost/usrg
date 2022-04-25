@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier4generator",
+  "textures": {
+    "resource_side": "minecraft:block/cobblestone",
+    "resource_up": "minecraft:block/cobblestone",
+    "resource_down": "minecraft:block/cobblestone",
+    "fluida": "usrg:block/lava_still",
+    "fluidb": "usrg:block/water_still"
+  }
+}

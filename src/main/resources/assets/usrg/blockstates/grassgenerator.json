@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "usrg:block/grassgenerator" },
-    "facing=east":  { "model": "usrg:block/grassgenerator", "y": 90 },
-    "facing=south": { "model": "usrg:block/grassgenerator", "y": 180 },
-    "facing=west":  { "model": "usrg:block/grassgenerator", "y": 270 }
-  }
-}

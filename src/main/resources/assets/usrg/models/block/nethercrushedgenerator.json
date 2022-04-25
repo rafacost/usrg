@@ -1,8 +1,0 @@
-{
-	"parent": "usrg:block/basetier3generator",
-	"textures": {
-		"resource_side": "exnihilosequentia:block/crushed_netherrack",
-		"resource_up": "exnihilosequentia:block/crushed_netherrack",
-		"resource_down": "exnihilosequentia:block/crushed_netherrack"
-	}
-}

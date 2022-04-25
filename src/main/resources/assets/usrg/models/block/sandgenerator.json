@@ -1,8 +1,0 @@
-{
-	"parent": "usrg:block/basetier1generator",
-	"textures": {
-		"resource_side": "minecraft:block/sand",
-		"resource_up": "minecraft:block/sand",
-		"resource_down": "minecraft:block/sand"
-	}
-}

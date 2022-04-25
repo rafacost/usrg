@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "usrg:block/nethercrushedgenerator" },
-    "facing=east":  { "model": "usrg:block/nethercrushedgenerator", "y": 90 },
-    "facing=south": { "model": "usrg:block/nethercrushedgenerator", "y": 180 },
-    "facing=west":  { "model": "usrg:block/nethercrushedgenerator", "y": 270 }
-  }
-}

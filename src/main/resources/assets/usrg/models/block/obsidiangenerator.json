@@ -1,8 +1,0 @@
-{
-	"parent": "usrg:block/basetier3generator",
-	"textures": {
-		"resource_side": "minecraft:block/obsidian",
-		"resource_up": "minecraft:block/obsidian",
-		"resource_down": "minecraft:block/obsidian"
-	}
-}

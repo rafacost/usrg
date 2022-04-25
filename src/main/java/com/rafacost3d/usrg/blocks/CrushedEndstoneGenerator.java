@@ -21,6 +21,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.lwjgl.glfw.GLFW;
 
 import javax.annotation.Nullable;
@@ -35,7 +36,7 @@ public class CrushedEndstoneGenerator extends BaseGenerator {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable BlockGetter worldIn, List<Component> tooltip, TooltipFlag flags) {
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable BlockGetter worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flags) {
 
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             TranslatableComponent information = new TranslatableComponent("block.generator.information");
@@ -45,6 +46,7 @@ public class CrushedEndstoneGenerator extends BaseGenerator {
 
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
                 Block block = ForgeRegistries.BLOCKS.getValue(key);
+                assert block != null;
                 text = text.replace("{item}", block.getName().getString());
             } else {
                 text = text.replace("{item}", CrushedEndstoneGeneratorTile.GENERATION_BLOCK.getName().getString());
@@ -59,13 +61,13 @@ public class CrushedEndstoneGenerator extends BaseGenerator {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
         return CrushedEndstoneGeneratorTile.create(this.tier, pos, state);
     }
 
     @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, @NotNull BlockState state, @NotNull BlockEntityType<T> type) {
         if (!level.isClientSide) {
             return (level1, blockPos, blockState, t) -> {
                 if (t instanceof CrushedEndstoneGeneratorTile tile) {

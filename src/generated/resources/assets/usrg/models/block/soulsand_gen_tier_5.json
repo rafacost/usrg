@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier5generator",
+  "textures": {
+    "resource_side": "minecraft:block/soul_sand",
+    "resource_up": "minecraft:block/soul_sand",
+    "resource_down": "minecraft:block/soul_sand",
+    "fluida": "usrg:block/lava_still",
+    "fluidb": "usrg:block/lava_still"
+  }
+}

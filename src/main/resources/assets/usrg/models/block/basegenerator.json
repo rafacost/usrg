@@ -4,8 +4,8 @@
 		"particle": "minecraft:block/stone_bricks",
 		"casing": "minecraft:block/stone_bricks",
 		"glass": "minecraft:block/glass",
-		"fluida": "usrg:block/water_still",
-		"fluidb": "usrg:block/lava_still"
+		"fluida": "minecraft:block/water_still",
+		"fluidb": "minecraft:block/lava_still"
 	},
 	"elements": [
 		{

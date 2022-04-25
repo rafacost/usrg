@@ -1,8 +1,0 @@
-{
-	"parent": "usrg:block/basetier4generator",
-	"textures": {
-		"resource_side": "minecraft:block/diamond_ore",
-		"resource_up": "minecraft:block/diamond_ore",
-		"resource_down": "minecraft:block/diamond_ore"
-	}
-}

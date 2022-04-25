@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier1generator",
+  "textures": {
+    "resource_side": "minecraft:block/grass_block_side",
+    "resource_up": "usrg:block/grass_block_top",
+    "resource_down": "minecraft:block/dirt",
+    "fluida": "usrg:block/water_still",
+    "fluidb": "usrg:block/water_still"
+  }
+}

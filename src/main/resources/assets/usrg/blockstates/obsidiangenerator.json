@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "usrg:block/obsidiangenerator" },
-    "facing=east":  { "model": "usrg:block/obsidiangenerator", "y": 90 },
-    "facing=south": { "model": "usrg:block/obsidiangenerator", "y": 180 },
-    "facing=west":  { "model": "usrg:block/obsidiangenerator", "y": 270 }
-  }
-}

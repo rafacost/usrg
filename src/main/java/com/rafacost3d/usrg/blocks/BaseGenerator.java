@@ -2,7 +2,6 @@ package com.rafacost3d.usrg.blocks;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -16,8 +15,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.level.BlockGetter;
 
-import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
-
 public abstract class BaseGenerator extends HorizontalDirectionalBlock implements EntityBlock {
 
     private static final VoxelShape RENDER_SHAPE = Shapes.join(
@@ -25,7 +22,7 @@ public abstract class BaseGenerator extends HorizontalDirectionalBlock implement
             box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D),
             BooleanOp.OR);
 
-    public BaseGenerator(int lightLevel) {
+    protected BaseGenerator(int lightLevel) {
         super(Properties.of(Material.GLASS) // Material.GLASS is required to help with the neighbor block rendering through the glass
                 .sound(SoundType.STONE)
                 .strength(2.0f)

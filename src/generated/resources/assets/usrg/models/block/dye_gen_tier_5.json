@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier5generator",
+  "textures": {
+    "resource_side": "minecraft:block/white_wool",
+    "resource_up": "minecraft:block/white_wool",
+    "resource_down": "minecraft:block/white_wool",
+    "fluida": "usrg:block/water_still",
+    "fluidb": "usrg:block/water_still"
+  }
+}

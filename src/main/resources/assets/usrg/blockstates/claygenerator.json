@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "usrg:block/claygenerator" },
-    "facing=east":  { "model": "usrg:block/claygenerator", "y": 90 },
-    "facing=south": { "model": "usrg:block/claygenerator", "y": 180 },
-    "facing=west":  { "model": "usrg:block/claygenerator", "y": 270 }
-  }
-}

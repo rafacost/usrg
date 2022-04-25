@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "usrg:block/cobblegenerator" },
-    "facing=east":  { "model": "usrg:block/cobblegenerator", "y": 90 },
-    "facing=south": { "model": "usrg:block/cobblegenerator", "y": 180 },
-    "facing=west":  { "model": "usrg:block/cobblegenerator", "y": 270 }
-  }
-}

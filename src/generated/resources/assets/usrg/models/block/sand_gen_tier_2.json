@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier2generator",
+  "textures": {
+    "resource_side": "minecraft:block/sand",
+    "resource_up": "minecraft:block/sand",
+    "resource_down": "minecraft:block/sand",
+    "fluida": "usrg:block/lava_still",
+    "fluidb": "usrg:block/water_still"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "usrg:block/ice_gen_tier_1"
+    }
+  }
+}
