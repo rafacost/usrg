@@ -26,7 +26,6 @@ public class Config {
     public static ForgeConfigSpec.BooleanValue ENABLE_ORE_GENERATOR;
     public static ForgeConfigSpec.BooleanValue ENABLE_DYE_GENERATOR;
     public static ForgeConfigSpec.ConfigValue<List<? extends String>> ORE_GENERATOR_ITEMS;
-    public static ForgeConfigSpec.IntValue BLOCK_PER_TICK;
 
     public static Tiers tier1;
     public static Tiers tier2;
@@ -39,7 +38,6 @@ public class Config {
         GENERATE_DUST = COMMON_BUILDER.comment("Clay, Glowstone, Quartz, Redstone and Snow Generators will generate dust items, not blocks.").define("generate_dust", false);
         ENABLE_ORE_GENERATOR = COMMON_BUILDER.comment("Enable the Ore Generator.").define("oreGeneratorEnable", true);
         ENABLE_DYE_GENERATOR = COMMON_BUILDER.comment("Enable the Dye Generator.").define("dyeGeneratorEnable", true);
-        BLOCK_PER_TICK = COMMON_BUILDER.comment("not in use").defineInRange("blockPerTick", 1, 1, 1);
         COMMON_BUILDER.pop();
 
         COMMON_BUILDER.comment("OreGenerator Probabilities").push(CATEGORY_OREGEN);
@@ -51,10 +49,10 @@ public class Config {
 
         COMMON_BUILDER.comment("Generator Settings").push("gensettings");
         tier1 = new Tiers(COMMON_BUILDER, "1", 100);
-        tier2 = new Tiers(COMMON_BUILDER, "2", 40);
-        tier3 = new Tiers(COMMON_BUILDER, "3", 20);
-        tier4 = new Tiers(COMMON_BUILDER, "4", 10);
-        tier5 = new Tiers(COMMON_BUILDER, "5", 5);
+        tier2 = new Tiers(COMMON_BUILDER, "2", 80);
+        tier3 = new Tiers(COMMON_BUILDER, "3", 60);
+        tier4 = new Tiers(COMMON_BUILDER, "4", 40);
+        tier5 = new Tiers(COMMON_BUILDER, "5", 20);
         COMMON_BUILDER.pop();
 
         COMMON_CONFIG = COMMON_BUILDER.build();

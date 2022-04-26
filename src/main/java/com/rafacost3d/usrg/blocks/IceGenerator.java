@@ -40,7 +40,15 @@ public class IceGenerator extends BaseGenerator {
             String text = information.getString();
 
             text = text.replace("{item}", IceGeneratorTile.GENERATION_BLOCK.getName().getString());
-            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+            String ticks;
+            switch (tier) {
+                case 2 -> ticks = Config.tier2.interval.get().toString();
+                case 3 -> ticks = Config.tier3.interval.get().toString();
+                case 4 -> ticks = Config.tier4.interval.get().toString();
+                case 5 -> ticks = Config.tier5.interval.get().toString();
+                default -> ticks = Config.tier1.interval.get().toString();
+            }
+            text = text.replace("{ticks}", ticks);
 
             tooltip.add(new TextComponent(text));
         } else {

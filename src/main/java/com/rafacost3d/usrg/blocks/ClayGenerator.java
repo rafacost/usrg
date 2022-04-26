@@ -38,12 +38,20 @@ public class ClayGenerator extends BaseGenerator {
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             String text = new TranslatableComponent("block.generator.information").getString();
 
-            if (Config.GENERATE_DUST.get()) {
+            if (Boolean.TRUE.equals(Config.GENERATE_DUST.get())) {
                 text = text.replace("{item}", Items.CLAY_BALL.getDescription().getString());
             } else {
                 text = text.replace("{item}", Blocks.CLAY.getName().getString());
             }
-            text = text.replace("{ticks}", Config.BLOCK_PER_TICK.get().toString());
+            String ticks;
+            switch (tier) {
+                case 2 -> ticks = Config.tier2.interval.get().toString();
+                case 3 -> ticks = Config.tier3.interval.get().toString();
+                case 4 -> ticks = Config.tier4.interval.get().toString();
+                case 5 -> ticks = Config.tier5.interval.get().toString();
+                default -> ticks = Config.tier1.interval.get().toString();
+            }
+            text = text.replace("{ticks}", ticks);
 
             tooltip.add(new TextComponent(text));
         } else {

@@ -6,9 +6,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,7 +25,7 @@ public abstract class BaseGeneratorTile extends BlockEntity {
     protected ItemStackHandler handler;
     private int ticksPerGenCycle;
 
-    public BaseGeneratorTile(Config.Tiers tiers, BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
+    protected BaseGeneratorTile(Config.Tiers tiers, BlockEntityType<?> tileEntityTypeIn, BlockPos pos, BlockState state) {
         super(tileEntityTypeIn, pos, state);
         this.configCache = new ConfigCache(tiers);
         this.ticksPerGenCycle = configCache.getInterval();
@@ -50,7 +48,7 @@ public abstract class BaseGeneratorTile extends BlockEntity {
             ticksPerGenCycle = configCache.getInterval();
             ItemStack stack;
 
-            if (Config.GENERATE_DUST.get()) {
+            if (Boolean.TRUE.equals(Config.GENERATE_DUST.get())) {
                 stack = item;
             } else {
                 stack = block;
