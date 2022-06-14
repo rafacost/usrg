@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier4generator",
+  "textures": {
+    "resource_side": "exnihilosequentia:block/dust",
+    "resource_up": "exnihilosequentia:block/dust",
+    "resource_down": "exnihilosequentia:block/dust",
+    "fluida": "usrg:block/lava_still",
+    "fluidb": "usrg:block/water_still"
+  }
+}

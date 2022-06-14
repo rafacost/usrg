@@ -1,0 +1,10 @@
+{
+  "parent": "usrg:block/basetier5generator",
+  "textures": {
+    "resource_side": "exnihilosequentia:block/crushed_netherrack",
+    "resource_up": "exnihilosequentia:block/crushed_netherrack",
+    "resource_down": "exnihilosequentia:block/crushed_netherrack",
+    "fluida": "usrg:block/lava_still",
+    "fluidb": "usrg:block/lava_still"
+  }
+}
