@@ -119,21 +119,24 @@ public class USRGBlockStateGen extends BlockStateProvider {
 
         String exnihilo = "exnihilosequentia";
         if (ModList.get().isLoaded(exnihilo)) {
-            List<ResourceLocation> keyList = new ArrayList<>();
-            keyList.add(new ResourceLocation(exnihilo, "crushed_end_stone"));
-            keyList.add(new ResourceLocation(exnihilo, "crushed_netherrack"));
-            keyList.add(new ResourceLocation(exnihilo, "dust"));
-            for (ResourceLocation key : keyList) {
-                if (ForgeRegistries.BLOCKS.containsKey(key)) {
-                    Block block = ForgeRegistries.BLOCKS.getValue(key);
-                    assert block != null;
-                    createGenModels(block, getBlockTexture(exnihilo, key.getPath()), stillLava, tier1);
-                    createGenModels(block, getBlockTexture(exnihilo, key.getPath()), stillLava, tier2);
-                    createGenModels(block, getBlockTexture(exnihilo, key.getPath()), stillLava, tier3);
-                    createGenModels(block, getBlockTexture(exnihilo, key.getPath()), stillLava, tier4);
-                    createGenModels(block, getBlockTexture(exnihilo, key.getPath()), stillLava, tier5);
-                }
-            }
+            ResourceLocation blockLoc = new ResourceLocation(exnihilo, "block/crushed_end_stone");
+            createGenModels(ModBlocks.CRUSHED_ENDSTONE_GEN_T1.get(), blockLoc, tier1);
+            createGenModels(ModBlocks.CRUSHED_ENDSTONE_GEN_T2.get(), blockLoc, tier2);
+            createGenModels(ModBlocks.CRUSHED_ENDSTONE_GEN_T3.get(), blockLoc, tier3);
+            createGenModels(ModBlocks.CRUSHED_ENDSTONE_GEN_T4.get(), blockLoc, tier4);
+            createGenModels(ModBlocks.CRUSHED_ENDSTONE_GEN_T5.get(), blockLoc, tier5);
+            blockLoc = (new ResourceLocation(exnihilo, "block/crushed_netherrack"));
+            createGenModels(ModBlocks.CRUSHED_NETHERRACK_GEN_T1.get(), blockLoc, stillLava, tier1);
+            createGenModels(ModBlocks.CRUSHED_NETHERRACK_GEN_T2.get(), blockLoc, stillLava, tier2);
+            createGenModels(ModBlocks.CRUSHED_NETHERRACK_GEN_T3.get(), blockLoc, stillLava, tier3);
+            createGenModels(ModBlocks.CRUSHED_NETHERRACK_GEN_T4.get(), blockLoc, stillLava, tier4);
+            createGenModels(ModBlocks.CRUSHED_NETHERRACK_GEN_T5.get(), blockLoc, stillLava, tier5);
+            blockLoc = (new ResourceLocation(exnihilo, "block/dust"));
+            createGenModels(ModBlocks.DUST_GEN_T1.get(), blockLoc, tier1);
+            createGenModels(ModBlocks.DUST_GEN_T2.get(), blockLoc, tier2);
+            createGenModels(ModBlocks.DUST_GEN_T3.get(), blockLoc, tier3);
+            createGenModels(ModBlocks.DUST_GEN_T4.get(), blockLoc, tier4);
+            createGenModels(ModBlocks.DUST_GEN_T5.get(), blockLoc, tier5);
         }
 
         ResourceLocation textureBottom = mcLoc(blockLoc + Blocks.DIRT.getRegistryName().getPath());

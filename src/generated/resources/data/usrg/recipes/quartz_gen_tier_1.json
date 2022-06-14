@@ -19,7 +19,7 @@
       "item": "minecraft:lava_bucket"
     },
     "w": {
-      "item": "minecraft:oak_log"
+      "tag": "minecraft:logs"
     },
     "x": {
       "item": "minecraft:quartz"

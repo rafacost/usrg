@@ -35,16 +35,16 @@ public class ModBlocks {
     private ModBlocks(){}
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, USRG.MODID);
 
-    public static final RegistryObject<BaseGenerator> CLAY_GEN_T1 = BLOCKS.register("clay_gen_tier_1", () -> new ClayGenerator(1));
-    public static final RegistryObject<BaseGenerator> CLAY_GEN_T2 = BLOCKS.register("clay_gen_tier_2", () -> new ClayGenerator(2));
-    public static final RegistryObject<BaseGenerator> CLAY_GEN_T3 = BLOCKS.register("clay_gen_tier_3", () -> new ClayGenerator(3));
-    public static final RegistryObject<BaseGenerator> CLAY_GEN_T4 = BLOCKS.register("clay_gen_tier_4", () -> new ClayGenerator(4));
-    public static final RegistryObject<BaseGenerator> CLAY_GEN_T5 = BLOCKS.register("clay_gen_tier_5", () -> new ClayGenerator(5));
     public static final RegistryObject<BaseGenerator> COBBLE_GEN_T1 = BLOCKS.register("cobble_gen_tier_1", () -> new CobblestoneGenerator(1));
     public static final RegistryObject<BaseGenerator> COBBLE_GEN_T2 = BLOCKS.register("cobble_gen_tier_2", () -> new CobblestoneGenerator(2));
     public static final RegistryObject<BaseGenerator> COBBLE_GEN_T3 = BLOCKS.register("cobble_gen_tier_3", () -> new CobblestoneGenerator(3));
     public static final RegistryObject<BaseGenerator> COBBLE_GEN_T4 = BLOCKS.register("cobble_gen_tier_4", () -> new CobblestoneGenerator(4));
     public static final RegistryObject<BaseGenerator> COBBLE_GEN_T5 = BLOCKS.register("cobble_gen_tier_5", () -> new CobblestoneGenerator(5));
+    public static final RegistryObject<BaseGenerator> CLAY_GEN_T1 = BLOCKS.register("clay_gen_tier_1", () -> new ClayGenerator(1));
+    public static final RegistryObject<BaseGenerator> CLAY_GEN_T2 = BLOCKS.register("clay_gen_tier_2", () -> new ClayGenerator(2));
+    public static final RegistryObject<BaseGenerator> CLAY_GEN_T3 = BLOCKS.register("clay_gen_tier_3", () -> new ClayGenerator(3));
+    public static final RegistryObject<BaseGenerator> CLAY_GEN_T4 = BLOCKS.register("clay_gen_tier_4", () -> new ClayGenerator(4));
+    public static final RegistryObject<BaseGenerator> CLAY_GEN_T5 = BLOCKS.register("clay_gen_tier_5", () -> new ClayGenerator(5));
     public static final RegistryObject<BaseGenerator> CLEAN_GEN_T1 = BLOCKS.register("clean_gen_tier_1", () -> new CleanGenerator(1));
     public static final RegistryObject<BaseGenerator> CLEAN_GEN_T2 = BLOCKS.register("clean_gen_tier_2", () -> new CleanGenerator(2));
     public static final RegistryObject<BaseGenerator> CLEAN_GEN_T3 = BLOCKS.register("clean_gen_tier_3", () -> new CleanGenerator(3));
@@ -131,33 +131,23 @@ public class ModBlocks {
     public static final RegistryObject<BaseGenerator> ORE_GEN_T4 = BLOCKS.register("ore_gen_tier_4", () -> new OreGenerator(4));
     public static final RegistryObject<BaseGenerator> ORE_GEN_T5 = BLOCKS.register("ore_gen_tier_5", () -> new OreGenerator(5));
 
-    public static class EXNModBlocks {
-        private EXNModBlocks(){}
-        public static final RegistryObject<BaseGenerator> DUST_GEN_T1 = BLOCKS.register("dust_gen_tier_1", () -> new DustGenerator(1));
-        public static final RegistryObject<BaseGenerator> DUST_GEN_T2 = BLOCKS.register("dust_gen_tier_2", () -> new DustGenerator(2));
-        public static final RegistryObject<BaseGenerator> DUST_GEN_T3 = BLOCKS.register("dust_gen_tier_3", () -> new DustGenerator(3));
-        public static final RegistryObject<BaseGenerator> DUST_GEN_T4 = BLOCKS.register("dust_gen_tier_4", () -> new DustGenerator(4));
-        public static final RegistryObject<BaseGenerator> DUST_GEN_T5 = BLOCKS.register("dust_gen_tier_5", () -> new DustGenerator(5));
-        public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T1 = BLOCKS.register("crushed_endstone_gen_tier_1", () -> new CrushedEndstoneGenerator(1));
-        public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T2 = BLOCKS.register("crushed_endstone_gen_tier_2", () -> new CrushedEndstoneGenerator(2));
-        public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T3 = BLOCKS.register("crushed_endstone_gen_tier_3", () -> new CrushedEndstoneGenerator(3));
-        public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T4 = BLOCKS.register("crushed_endstone_gen_tier_4", () -> new CrushedEndstoneGenerator(4));
-        public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T5 = BLOCKS.register("crushed_endstone_gen_tier_5", () -> new CrushedEndstoneGenerator(5));
-        public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T1 = BLOCKS.register("crushed_netherrack_gen_tier_1", () -> new CrushedNetherGenerator(1));
-        public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T2 = BLOCKS.register("crushed_netherrack_gen_tier_2", () -> new CrushedNetherGenerator(2));
-        public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T3 = BLOCKS.register("crushed_netherrack_gen_tier_3", () -> new CrushedNetherGenerator(3));
-        public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T4 = BLOCKS.register("crushed_netherrack_gen_tier_4", () -> new CrushedNetherGenerator(4));
-        public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T5 = BLOCKS.register("crushed_netherrack_gen_tier_5", () -> new CrushedNetherGenerator(5));
-
-        public static void init(IEventBus modBusEvent) {
-            BLOCKS.register(modBusEvent);
-        }
-    }
+    public static final RegistryObject<BaseGenerator> DUST_GEN_T1 = BLOCKS.register("dust_gen_tier_1", () -> new DustGenerator(1));
+    public static final RegistryObject<BaseGenerator> DUST_GEN_T2 = BLOCKS.register("dust_gen_tier_2", () -> new DustGenerator(2));
+    public static final RegistryObject<BaseGenerator> DUST_GEN_T3 = BLOCKS.register("dust_gen_tier_3", () -> new DustGenerator(3));
+    public static final RegistryObject<BaseGenerator> DUST_GEN_T4 = BLOCKS.register("dust_gen_tier_4", () -> new DustGenerator(4));
+    public static final RegistryObject<BaseGenerator> DUST_GEN_T5 = BLOCKS.register("dust_gen_tier_5", () -> new DustGenerator(5));
+    public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T1 = BLOCKS.register("crushed_endstone_gen_tier_1", () -> new CrushedEndstoneGenerator(1));
+    public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T2 = BLOCKS.register("crushed_endstone_gen_tier_2", () -> new CrushedEndstoneGenerator(2));
+    public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T3 = BLOCKS.register("crushed_endstone_gen_tier_3", () -> new CrushedEndstoneGenerator(3));
+    public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T4 = BLOCKS.register("crushed_endstone_gen_tier_4", () -> new CrushedEndstoneGenerator(4));
+    public static final RegistryObject<BaseGenerator> CRUSHED_ENDSTONE_GEN_T5 = BLOCKS.register("crushed_endstone_gen_tier_5", () -> new CrushedEndstoneGenerator(5));
+    public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T1 = BLOCKS.register("crushed_netherrack_gen_tier_1", () -> new CrushedNetherGenerator(1));
+    public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T2 = BLOCKS.register("crushed_netherrack_gen_tier_2", () -> new CrushedNetherGenerator(2));
+    public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T3 = BLOCKS.register("crushed_netherrack_gen_tier_3", () -> new CrushedNetherGenerator(3));
+    public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T4 = BLOCKS.register("crushed_netherrack_gen_tier_4", () -> new CrushedNetherGenerator(4));
+    public static final RegistryObject<BaseGenerator> CRUSHED_NETHERRACK_GEN_T5 = BLOCKS.register("crushed_netherrack_gen_tier_5", () -> new CrushedNetherGenerator(5));
 
     public static void init(IEventBus modBusEvent) {
         BLOCKS.register(modBusEvent);
-        if (ModList.get().isLoaded("exnihilosequentia")) {
-            EXNModBlocks.init(modBusEvent);
-        }
     }
 }

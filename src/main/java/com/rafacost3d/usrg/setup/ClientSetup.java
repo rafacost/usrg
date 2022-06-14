@@ -8,7 +8,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ClientSetup {
-    public static void setupClient(final FMLClientSetupEvent event) {
+    public static void setupClient(final FMLClientSetupEvent ignored) {
         // the following is required to help with the glass transparency
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COBBLE_GEN_T1.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COBBLE_GEN_T2.get(), RenderType.cutout());
@@ -115,29 +115,29 @@ public class ClientSetup {
         if (ModList.get().isLoaded("exnihilosequentia")) {
             ResourceLocation key = new ResourceLocation("exnihilosequentia:dust");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.DUST_GEN_T1.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.DUST_GEN_T2.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.DUST_GEN_T3.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.DUST_GEN_T4.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.DUST_GEN_T5.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.DUST_GEN_T1.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.DUST_GEN_T2.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.DUST_GEN_T3.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.DUST_GEN_T4.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.DUST_GEN_T5.get(), RenderType.cutout());
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T1.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T2.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T3.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T4.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T5.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_ENDSTONE_GEN_T1.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_ENDSTONE_GEN_T2.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_ENDSTONE_GEN_T3.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_ENDSTONE_GEN_T4.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_ENDSTONE_GEN_T5.get(), RenderType.cutout());
             }
 
             key = new ResourceLocation("exnihilosequentia:crushed_netherrack");
             if (ForgeRegistries.BLOCKS.containsKey(key)) {
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T1.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T2.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T3.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T4.get(), RenderType.cutout());
-                ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T5.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_NETHERRACK_GEN_T1.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_NETHERRACK_GEN_T2.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_NETHERRACK_GEN_T3.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_NETHERRACK_GEN_T4.get(), RenderType.cutout());
+                ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRUSHED_NETHERRACK_GEN_T5.get(), RenderType.cutout());
             }
         }
     }

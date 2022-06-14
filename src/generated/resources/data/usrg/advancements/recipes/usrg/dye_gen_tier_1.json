@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_white_dye": {
+    "has_dyes": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:white_dye"
+              "minecraft:air"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_white_dye",
+      "has_dyes",
       "has_the_recipe"
     ]
   ]

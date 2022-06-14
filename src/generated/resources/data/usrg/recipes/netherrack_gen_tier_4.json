@@ -19,7 +19,7 @@
       "item": "minecraft:lava_bucket"
     },
     "w": {
-      "item": "minecraft:diamond"
+      "tag": "forge:storage_blocks/diamond"
     },
     "x": {
       "item": "usrg:netherrack_gen_tier_3"

@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_diamond_ore": {
+    "has_ores": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:diamond_ore"
+              "minecraft:air"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_diamond_ore",
+      "has_ores",
       "has_the_recipe"
     ]
   ]

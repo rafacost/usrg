@@ -7,6 +7,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DyeGeneratorTile extends BaseRandomGeneratorTile {
     
@@ -15,7 +16,7 @@ public class DyeGeneratorTile extends BaseRandomGeneratorTile {
 
         int key = 1;
 
-        for (Item item : Tags.Items.DYES.getValues()) {
+        for (Item item : ForgeRegistries.ITEMS.tags().getTag(Tags.Items.DYES).stream().toList()) {
             rndItems.put(key, item);
             rndProbs.put(key++, (int) (0.10 * 100));
         }

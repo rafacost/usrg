@@ -19,10 +19,10 @@
       "item": "minecraft:water_bucket"
     },
     "w": {
-      "item": "minecraft:oak_log"
+      "tag": "minecraft:logs"
     },
     "x": {
-      "item": "minecraft:diamond_ore"
+      "tag": "forge:ores"
     }
   },
   "result": {

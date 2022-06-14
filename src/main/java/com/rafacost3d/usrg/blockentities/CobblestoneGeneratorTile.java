@@ -3,13 +3,9 @@ package com.rafacost3d.usrg.blockentities;
 import com.rafacost3d.usrg.setup.Config;
 import com.rafacost3d.usrg.setup.ModBE;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-
-import static com.rafacost3d.usrg.setup.ModBlocks.*;
 
 public class CobblestoneGeneratorTile extends BaseGeneratorTile {
     public CobblestoneGeneratorTile(Config.Tiers tiers, BlockEntityType<?> type, BlockPos pos, BlockState state) {

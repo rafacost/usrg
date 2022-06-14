@@ -19,7 +19,7 @@
       "item": "minecraft:lava_bucket"
     },
     "w": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:storage_blocks/iron"
     },
     "x": {
       "item": "usrg:netherrack_gen_tier_2"

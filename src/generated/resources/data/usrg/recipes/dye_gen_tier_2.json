@@ -19,7 +19,7 @@
       "item": "minecraft:water_bucket"
     },
     "w": {
-      "item": "minecraft:stone"
+      "tag": "forge:stone"
     },
     "x": {
       "item": "usrg:dye_gen_tier_1"

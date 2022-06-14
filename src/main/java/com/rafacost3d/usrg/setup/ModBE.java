@@ -25,6 +25,7 @@ import com.rafacost3d.usrg.blockentities.SnowGeneratorTile;
 import com.rafacost3d.usrg.blockentities.SoulsandGeneratorTile;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -32,16 +33,16 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModBE {
     public static DeferredRegister<BlockEntityType<?>> BE = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, USRG.MODID);
 
-    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T1_BE = BE.register("clay_be_t1", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(1), ModBlocks.CLAY_GEN_T1.get()).build(null));
-    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T2_BE = BE.register("clay_be_t2", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(2), ModBlocks.CLAY_GEN_T2.get()).build(null));
-    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T3_BE = BE.register("clay_be_t3", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(3), ModBlocks.CLAY_GEN_T3.get()).build(null));
-    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T4_BE = BE.register("clay_be_t4", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(4), ModBlocks.CLAY_GEN_T4.get()).build(null));
-    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T5_BE = BE.register("clay_be_t5", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(5), ModBlocks.CLAY_GEN_T5.get()).build(null));
     public static RegistryObject<BlockEntityType<CobblestoneGeneratorTile>> COBBLE_T1_BE = BE.register("cobble_be_t1", () -> BlockEntityType.Builder.of(CobblestoneGeneratorTile.makeSupplier(1), ModBlocks.COBBLE_GEN_T1.get()).build(null));
     public static RegistryObject<BlockEntityType<CobblestoneGeneratorTile>> COBBLE_T2_BE = BE.register("cobble_be_t2", () -> BlockEntityType.Builder.of(CobblestoneGeneratorTile.makeSupplier(2), ModBlocks.COBBLE_GEN_T2.get()).build(null));
     public static RegistryObject<BlockEntityType<CobblestoneGeneratorTile>> COBBLE_T3_BE = BE.register("cobble_be_t3", () -> BlockEntityType.Builder.of(CobblestoneGeneratorTile.makeSupplier(3), ModBlocks.COBBLE_GEN_T3.get()).build(null));
     public static RegistryObject<BlockEntityType<CobblestoneGeneratorTile>> COBBLE_T4_BE = BE.register("cobble_be_t4", () -> BlockEntityType.Builder.of(CobblestoneGeneratorTile.makeSupplier(4), ModBlocks.COBBLE_GEN_T4.get()).build(null));
     public static RegistryObject<BlockEntityType<CobblestoneGeneratorTile>> COBBLE_T5_BE = BE.register("cobble_be_t5", () -> BlockEntityType.Builder.of(CobblestoneGeneratorTile.makeSupplier(5), ModBlocks.COBBLE_GEN_T5.get()).build(null));
+    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T1_BE = BE.register("clay_be_t1", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(1), ModBlocks.CLAY_GEN_T1.get()).build(null));
+    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T2_BE = BE.register("clay_be_t2", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(2), ModBlocks.CLAY_GEN_T2.get()).build(null));
+    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T3_BE = BE.register("clay_be_t3", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(3), ModBlocks.CLAY_GEN_T3.get()).build(null));
+    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T4_BE = BE.register("clay_be_t4", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(4), ModBlocks.CLAY_GEN_T4.get()).build(null));
+    public static RegistryObject<BlockEntityType<ClayGeneratorTile>> CLAY_T5_BE = BE.register("clay_be_t5", () -> BlockEntityType.Builder.of(ClayGeneratorTile.makeSupplier(5), ModBlocks.CLAY_GEN_T5.get()).build(null));
     public static RegistryObject<BlockEntityType<CleanGeneratorTile>> CLEAN_T1_BE = BE.register("clean_be_t1", () -> BlockEntityType.Builder.of(CleanGeneratorTile.makeSupplier(1), ModBlocks.CLEAN_GEN_T1.get()).build(null));
     public static RegistryObject<BlockEntityType<CleanGeneratorTile>> CLEAN_T2_BE = BE.register("clean_be_t2", () -> BlockEntityType.Builder.of(CleanGeneratorTile.makeSupplier(2), ModBlocks.CLEAN_GEN_T2.get()).build(null));
     public static RegistryObject<BlockEntityType<CleanGeneratorTile>> CLEAN_T3_BE = BE.register("clean_be_t3", () -> BlockEntityType.Builder.of(CleanGeneratorTile.makeSupplier(3), ModBlocks.CLEAN_GEN_T3.get()).build(null));
@@ -128,23 +129,22 @@ public class ModBE {
     public static RegistryObject<BlockEntityType<OreGeneratorTile>> ORE_T4_BE = BE.register("ore_be_t4", () -> BlockEntityType.Builder.of(OreGeneratorTile.makeSupplier(4), ModBlocks.ORE_GEN_T4.get()).build(null));
     public static RegistryObject<BlockEntityType<OreGeneratorTile>> ORE_T5_BE = BE.register("ore_be_t5", () -> BlockEntityType.Builder.of(OreGeneratorTile.makeSupplier(5), ModBlocks.ORE_GEN_T5.get()).build(null));
 
-    public static class EXNModBE {
-        public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T1_BE = BE.register("dust_be_t1", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(1), ModBlocks.EXNModBlocks.DUST_GEN_T1.get()).build(null));
-        public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T2_BE = BE.register("dust_be_t2", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(2), ModBlocks.EXNModBlocks.DUST_GEN_T2.get()).build(null));
-        public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T3_BE = BE.register("dust_be_t3", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(3), ModBlocks.EXNModBlocks.DUST_GEN_T3.get()).build(null));
-        public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T4_BE = BE.register("dust_be_t4", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(4), ModBlocks.EXNModBlocks.DUST_GEN_T4.get()).build(null));
-        public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T5_BE = BE.register("dust_be_t5", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(5), ModBlocks.EXNModBlocks.DUST_GEN_T5.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T1_BE = BE.register("crushed_endstone_be_t1", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(1), ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T1.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T2_BE = BE.register("crushed_endstone_be_t2", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(2), ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T2.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T3_BE = BE.register("crushed_endstone_be_t3", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(3), ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T3.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T4_BE = BE.register("crushed_endstone_be_t4", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(4), ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T4.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T5_BE = BE.register("crushed_endstone_be_t5", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(5), ModBlocks.EXNModBlocks.CRUSHED_ENDSTONE_GEN_T5.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T1_BE = BE.register("crushed_netherrack_be_t1", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(1), ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T1.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T2_BE = BE.register("crushed_netherrack_be_t2", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(2), ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T2.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T3_BE = BE.register("crushed_netherrack_be_t3", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(3), ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T3.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T4_BE = BE.register("crushed_netherrack_be_t4", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(4), ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T4.get()).build(null));
-        public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T5_BE = BE.register("crushed_netherrack_be_t5", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(5), ModBlocks.EXNModBlocks.CRUSHED_NETHERRACK_GEN_T5.get()).build(null));
-    }
+    public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T1_BE = BE.register("dust_be_t1", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(1), ModBlocks.DUST_GEN_T1.get()).build(null));
+    public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T2_BE = BE.register("dust_be_t2", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(2), ModBlocks.DUST_GEN_T2.get()).build(null));
+    public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T3_BE = BE.register("dust_be_t3", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(3), ModBlocks.DUST_GEN_T3.get()).build(null));
+    public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T4_BE = BE.register("dust_be_t4", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(4), ModBlocks.DUST_GEN_T4.get()).build(null));
+    public static RegistryObject<BlockEntityType<DustGeneratorTile>> DUST_T5_BE = BE.register("dust_be_t5", () -> BlockEntityType.Builder.of(DustGeneratorTile.makeSupplier(5), ModBlocks.DUST_GEN_T5.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T1_BE = BE.register("crushed_endstone_be_t1", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(1), ModBlocks.CRUSHED_ENDSTONE_GEN_T1.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T2_BE = BE.register("crushed_endstone_be_t2", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(2), ModBlocks.CRUSHED_ENDSTONE_GEN_T2.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T3_BE = BE.register("crushed_endstone_be_t3", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(3), ModBlocks.CRUSHED_ENDSTONE_GEN_T3.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T4_BE = BE.register("crushed_endstone_be_t4", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(4), ModBlocks.CRUSHED_ENDSTONE_GEN_T4.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedEndstoneGeneratorTile>> CRUSHED_ENDSTONE_T5_BE = BE.register("crushed_endstone_be_t5", () -> BlockEntityType.Builder.of(CrushedEndstoneGeneratorTile.makeSupplier(5), ModBlocks.CRUSHED_ENDSTONE_GEN_T5.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T1_BE = BE.register("crushed_netherrack_be_t1", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(1), ModBlocks.CRUSHED_NETHERRACK_GEN_T1.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T2_BE = BE.register("crushed_netherrack_be_t2", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(2), ModBlocks.CRUSHED_NETHERRACK_GEN_T2.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T3_BE = BE.register("crushed_netherrack_be_t3", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(3), ModBlocks.CRUSHED_NETHERRACK_GEN_T3.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T4_BE = BE.register("crushed_netherrack_be_t4", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(4), ModBlocks.CRUSHED_NETHERRACK_GEN_T4.get()).build(null));
+    public static RegistryObject<BlockEntityType<CrushedNetherrackGeneratorTile>> CRUSHED_NETHERRACK_T5_BE = BE.register("crushed_netherrack_be_t5", () -> BlockEntityType.Builder.of(CrushedNetherrackGeneratorTile.makeSupplier(5), ModBlocks.CRUSHED_NETHERRACK_GEN_T5.get()).build(null));
+
 
     public static void init(IEventBus modBusEvent) {
         BE.register(modBusEvent);

@@ -19,7 +19,7 @@
       "item": "minecraft:lava_bucket"
     },
     "w": {
-      "item": "minecraft:stone"
+      "tag": "forge:stone"
     },
     "x": {
       "item": "usrg:glowstone_gen_tier_1"

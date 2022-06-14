@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.18.1-4.0'
+version = '1.18.2-2.0'
 group = 'com.rafacost3d.usrg' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'Ultimate SkyBlock Resource Generator'
 
@@ -20,7 +20,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17) // Need this here so
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.18.1'
+    mappings channel: 'official', version: '1.18.2'
     runs {
         client {
             workingDirectory project.file('run')
@@ -69,18 +69,28 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        name 'prog'
+        name 'pog'
         url 'https://dvs1.progwml6.com/files/maven'
         content {
             includeGroup 'mezz.jei'
         }
     }
+
+    maven {
+        name 'ex nihilo repo'
+        url 'https://repo.jacob-williams.me/repository/maven-releases/'
+        content {
+            includeGroup 'novamachina.exnihilosequentia'
+        }
+    }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.1-39.0.63'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.1.25'
 
-    runtimeOnly fg.deobf("mezz.jei:jei-1.18.1:+")
+    implementation fg.deobf("novamachina.exnihilosequentia:ExNihiloSequentia:1.18.2-20220530-183458")
+
+    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:+")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
@@ -98,11 +108,7 @@ jar {
     }
 }
 
-// Example configuration to allow publishing using the maven-publish task
-// This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar') 
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
+jar.finalizedBy('reobfJar')
 
 publishing {
     publications {

@@ -19,7 +19,7 @@
       "item": "minecraft:water_bucket"
     },
     "w": {
-      "item": "minecraft:diamond"
+      "tag": "forge:storage_blocks/diamond"
     },
     "x": {
       "item": "usrg:snow_gen_tier_3"
