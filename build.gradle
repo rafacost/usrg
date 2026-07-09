@@ -2,7 +2,7 @@ plugins {
     id 'idea'
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev.legacyforge' version '2.0.91'
+    id 'net.neoforged.gradle' version '6.0.21'
 }
 
 version = mod_version
@@ -14,71 +14,69 @@ base {
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-legacyForge {
-    version = project.minecraft_version + '-' + project.forge_version
-
-    parchment {
-        mappingsVersion = project.parchment_mappings_version
-        minecraftVersion = project.parchment_minecraft_version
-    }
-
-    runs {
-        client {
-            client()
-            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        server {
-            server()
-            programArgument '--nogui'
-            systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        data {
-            data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-        }
-
-        configureEach {
-            systemProperty 'forge.logging.markers', 'REGISTRIES'
-            logLevel = org.slf4j.event.Level.DEBUG
-        }
-    }
-
-    mods {
-        "${mod_id}" {
-            sourceSet(sourceSets.main)
-        }
-    }
-}
-
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-configurations {
-    runtimeClasspath.extendsFrom localRuntime
-}
-
 repositories {
+    maven {
+        name = "NeoForged"
+        url = "https://maven.neoforged.net/releases"
+    }
     maven {
         name = "Jared Maven"
         url = "https://maven.blamejared.com"
     }
-}
-
-obfuscation {
-    createRemappingConfiguration(configurations.localRuntime)
+    maven {
+        name = "CurseMaven"
+        url = "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
-    modRuntimeOnly "mezz.jei:jei-1.20.1-forge:15.20.0.133"
+    minecraft "net.neoforged:forge:${minecraft_version}-${neo_version}"
+
+    runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:15.20.0.133")
+    runtimeOnly fg.deobf("curse.maven:novacore-923669:4815411")
+    runtimeOnly fg.deobf("curse.maven:exnihilosequentia-400012:5988562")
+}
+
+minecraft {
+    mappings channel: 'official', version: minecraft_version
+
+    runs {
+        configureEach {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', project.mod_id
+            mods {
+                "${mod_id}" {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        client {
+        }
+
+        server {
+            arg '--nogui'
+        }
+
+        data {
+            args '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+    }
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
     var replaceProperties = [
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
-            forge_version          : forge_version,
-            forge_version_range    : forge_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
             loader_version_range   : loader_version_range,
             mod_id                 : mod_id,
             mod_name               : mod_name,
@@ -94,7 +92,6 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
 }
 
 sourceSets.main.resources.srcDir generateModMetadata
-legacyForge.ideSyncTask generateModMetadata
 
 jar {
     manifest {
@@ -126,3 +123,5 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
+
+jar.finalizedBy('reobfJar')
