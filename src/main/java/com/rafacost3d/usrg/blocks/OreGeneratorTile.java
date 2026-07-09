@@ -1,5 +1,7 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.setup.ModBlockEntities;
+
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.Item;
@@ -9,12 +11,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class OreGeneratorTile extends BaseRandomGeneratorTile {
     
     public OreGeneratorTile(BlockPos pos, BlockState state) {
-        super(OREGENERATOR_TILE, pos, state);
+        super(ModBlockEntities.OREGENERATOR_TILE.get(), pos, state);
         
         int key = 1;
         

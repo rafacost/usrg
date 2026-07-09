@@ -1,22 +1,25 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.setup.ModBlockEntities;
+
+import net.minecraft.core.Holder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags;
 
-import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class DyeGeneratorTile extends BaseRandomGeneratorTile {
     
     public DyeGeneratorTile(BlockPos pos, BlockState state) {
-        super(DYEGENERATOR_TILE, pos, state);
+        super(ModBlockEntities.DYEGENERATOR_TILE.get(), pos, state);
         
         int key = 1;
 
-        for (Item item : Tags.Items.DYES.getValues()) {
-            rndItems.put(key, item);
+        for (Holder<Item> item : BuiltInRegistries.ITEM.getTagOrEmpty(Tags.Items.DYES)) {
+            rndItems.put(key, item.value());
             rndProbs.put(key++, (int)(0.10 * 100));
         }
     }
