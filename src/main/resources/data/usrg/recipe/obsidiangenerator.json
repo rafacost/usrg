@@ -1,8 +1,4 @@
 {
-  "conditions": [{
-    "type": "forge:item_exists",
-    "item": "exnihilosequentia:crushed_netherrack"
-  }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
@@ -26,11 +22,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:nether_wart"
+		"item": "minecraft:obsidian"
 	}
   },
   "result": {
-    "item": "usrg:nethercrushedgenerator"
+    "id": "usrg:obsidiangenerator"
   },
   "group": "usrg"
 }

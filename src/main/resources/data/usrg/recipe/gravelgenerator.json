@@ -10,7 +10,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:diamond_block"
+		"item": "minecraft:gold_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
@@ -22,11 +22,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:redstone"
+		"item": "minecraft:gravel"
 	}
   },
   "result": {
-    "item": "usrg:redstonegenerator"
+    "id": "usrg:gravelgenerator"
   },
   "group": "usrg"
 }

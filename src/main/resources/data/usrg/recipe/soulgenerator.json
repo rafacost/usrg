@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#L",
+    "L#L",
     "SGS"
   ],
   "key": {
@@ -10,10 +10,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:gold_block"
-	},
-	"W": {
-		"item": "minecraft:water_bucket"
+		"item": "minecraft:diamond_block"
 	},
 	"L": {
 		"item": "minecraft:lava_bucket"
@@ -22,11 +19,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:gravel"
+		"item": "minecraft:soul_sand"
 	}
   },
   "result": {
-    "item": "usrg:gravelgenerator"
+    "id": "usrg:soulgenerator"
   },
   "group": "usrg"
 }

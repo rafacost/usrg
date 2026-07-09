@@ -1,12 +1,8 @@
 {
-  "conditions": [{
-    "type": "forge:item_exists",
-    "item": "exnihilosequentia:dust"
-  }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#L",
+    "W#W",
     "SGS"
   ],
   "key": {
@@ -19,18 +15,15 @@
 	"W": {
 		"item": "minecraft:water_bucket"
 	},
-	"L": {
-		"item": "minecraft:lava_bucket"
-	},
 	"G": {
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "exnihilosequentia:dust"
+		"tag": "forge:dyes"
 	}
   },
   "result": {
-    "item": "usrg:dustgenerator"
+    "id": "usrg:dyegenerator"
   },
   "group": "usrg"
 }

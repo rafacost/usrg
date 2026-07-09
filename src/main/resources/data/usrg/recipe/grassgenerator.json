@@ -10,7 +10,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:iron_block"
+		"item": "minecraft:gold_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
@@ -23,7 +23,7 @@
 	}
   },
   "result": {
-    "item": "usrg:dirtgenerator"
+    "id": "usrg:grassgenerator"
   },
   "group": "usrg"
 }

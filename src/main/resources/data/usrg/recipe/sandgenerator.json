@@ -1,8 +1,4 @@
 {
-  "conditions": [{
-    "type": "forge:item_exists",
-    "item": "exnihilosequentia:crushed_end_stone"
-  }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
@@ -14,7 +10,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:diamond_block"
+		"item": "minecraft:iron_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
@@ -26,11 +22,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:ender_pearl"
+		"tag": "forge:sand/colorless"
 	}
   },
   "result": {
-    "item": "usrg:endcrushedgenerator"
+    "id": "usrg:sandgenerator"
   },
   "group": "usrg"
 }

@@ -19,11 +19,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:nether_wart"
+		"item": "minecraft:quartz"
 	}
   },
   "result": {
-    "item": "usrg:nethergenerator"
+    "id": "usrg:quartzgenerator"
   },
   "group": "usrg"
 }

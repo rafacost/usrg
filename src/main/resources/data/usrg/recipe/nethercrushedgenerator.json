@@ -1,8 +1,12 @@
 {
+  "neoforge:conditions": [{
+    "type": "neoforge:item_exists",
+    "item": "exnihilosequentia:crushed_netherrack"
+  }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#W",
+    "W#L",
     "SGS"
   ],
   "key": {
@@ -15,15 +19,18 @@
 	"W": {
 		"item": "minecraft:water_bucket"
 	},
+	"L": {
+		"item": "minecraft:lava_bucket"
+	},
 	"G": {
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:snowball"
+		"item": "minecraft:nether_wart"
 	}
   },
   "result": {
-    "item": "usrg:snowgenerator"
+    "id": "usrg:nethercrushedgenerator"
   },
   "group": "usrg"
 }

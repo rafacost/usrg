@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#L",
+    "W#W",
     "SGS"
   ],
   "key": {
@@ -10,23 +10,20 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:iron_block"
+		"item": "minecraft:gold_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
-	},
-	"L": {
-		"item": "minecraft:lava_bucket"
 	},
 	"G": {
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:cobblestone"
+		"tag": "forge:mushrooms"
 	}
   },
   "result": {
-    "item": "usrg:cobblegenerator"
+    "id": "usrg:fungusgenerator"
   },
   "group": "usrg"
 }

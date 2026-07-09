@@ -10,7 +10,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:gold_block"
+		"item": "minecraft:iron_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
@@ -19,11 +19,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:dirt"
+		"item": "minecraft:clay_ball"
 	}
   },
   "result": {
-    "item": "usrg:grassgenerator"
+    "id": "usrg:claygenerator"
   },
   "group": "usrg"
 }

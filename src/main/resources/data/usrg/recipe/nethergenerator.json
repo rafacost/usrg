@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#W",
+    "L#L",
     "SGS"
   ],
   "key": {
@@ -12,18 +12,18 @@
 	"T": {
 		"item": "minecraft:diamond_block"
 	},
-	"W": {
-		"item": "minecraft:water_bucket"
+	"L": {
+		"item": "minecraft:lava_bucket"
 	},
 	"G": {
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:snowball"
+		"item": "minecraft:nether_wart"
 	}
   },
   "result": {
-    "item": "usrg:icegenerator"
+    "id": "usrg:nethergenerator"
   },
   "group": "usrg"
 }

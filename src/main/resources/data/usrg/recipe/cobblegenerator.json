@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "L#L",
+    "W#L",
     "SGS"
   ],
   "key": {
@@ -10,7 +10,10 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:gold_block"
+		"item": "minecraft:iron_block"
+	},
+	"W": {
+		"item": "minecraft:water_bucket"
 	},
 	"L": {
 		"item": "minecraft:lava_bucket"
@@ -19,11 +22,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:glowstone_dust"
+		"item": "minecraft:cobblestone"
 	}
   },
   "result": {
-    "item": "usrg:glowstonegenerator"
+    "id": "usrg:cobblegenerator"
   },
   "group": "usrg"
 }

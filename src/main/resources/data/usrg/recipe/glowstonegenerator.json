@@ -10,7 +10,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:diamond_block"
+		"item": "minecraft:gold_block"
 	},
 	"L": {
 		"item": "minecraft:lava_bucket"
@@ -19,11 +19,11 @@
 		"tag": "forge:glass/colorless"
 	},
 	"#": {
-		"item": "minecraft:ender_pearl"
+		"item": "minecraft:glowstone_dust"
 	}
   },
   "result": {
-    "item": "usrg:endgenerator"
+    "id": "usrg:glowstonegenerator"
   },
   "group": "usrg"
 }
