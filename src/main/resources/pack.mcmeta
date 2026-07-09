@@ -1,6 +1,6 @@
 {
-    "pack": {
-        "description": "usrg resources",
-        "pack_format": 8
-    }
+  "pack": {
+    "description": "Ultimate Skyblock Resource Generator resources",
+    "pack_format": 15
+  }
 }
