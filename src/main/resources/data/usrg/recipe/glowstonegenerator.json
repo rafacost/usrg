@@ -16,7 +16,7 @@
 		"item": "minecraft:lava_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
 		"item": "minecraft:glowstone_dust"

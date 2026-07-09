@@ -19,10 +19,10 @@
       "item": "minecraft:lava_bucket"
     },
     "G": {
-      "tag": "forge:glass/colorless"
+      "tag": "c:glass_blocks/colorless"
     },
     "#": {
-      "tag": "forge:ores/diamond"
+      "tag": "c:ores/diamond"
     }
   },
   "result": {

@@ -16,10 +16,10 @@
 		"item": "minecraft:water_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"tag": "forge:mushrooms"
+		"tag": "c:mushrooms"
 	}
   },
   "result": {
