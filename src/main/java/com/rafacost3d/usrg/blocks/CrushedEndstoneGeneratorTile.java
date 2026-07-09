@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 
 public class CrushedEndstoneGeneratorTile extends BaseGeneratorTile {
@@ -22,10 +22,10 @@ public class CrushedEndstoneGeneratorTile extends BaseGeneratorTile {
 
     @Override
     public ItemStack getGenerationDust() {
-        ResourceLocation key = new ResourceLocation(RESOURCE_KEY);
+        ResourceLocation key = ResourceLocation.parse(RESOURCE_KEY);
 
-        if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            Block block = ForgeRegistries.BLOCKS.getValue(key);
+        if (BuiltInRegistries.BLOCK.containsKey(key)) {
+            Block block = BuiltInRegistries.BLOCK.get(key);
             return new ItemStack(block, itemsPerGenCycle);
         }
         return new ItemStack(GENERATION_BLOCK, itemsPerGenCycle);
@@ -33,10 +33,10 @@ public class CrushedEndstoneGeneratorTile extends BaseGeneratorTile {
 
     @Override
     public ItemStack getGenerationBlock() {
-        ResourceLocation key = new ResourceLocation(RESOURCE_KEY);
+        ResourceLocation key = ResourceLocation.parse(RESOURCE_KEY);
 
-        if (ForgeRegistries.BLOCKS.containsKey(key)) {
-            Block block = ForgeRegistries.BLOCKS.getValue(key);
+        if (BuiltInRegistries.BLOCK.containsKey(key)) {
+            Block block = BuiltInRegistries.BLOCK.get(key);
             return new ItemStack(block, itemsPerGenCycle);
         }
         return new ItemStack(GENERATION_BLOCK, itemsPerGenCycle);

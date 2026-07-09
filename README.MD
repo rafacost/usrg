@@ -8,10 +8,10 @@ Ultimate Skyblock Resource Generator adds compact generator blocks for skyblock 
 
 ## Current Release
 
-- Minecraft: `1.20.1`
-- Loader: `NeoForge 47.1.79+`
-- Java: `17`
-- Mod version: `1.20.1-1.0.0`
+- Minecraft: `1.21.1`
+- Loader: `NeoForge 21.1.235`
+- Java: `21`
+- Mod version: `1.21.1-1.0.0`
 
 Downloads are available on:
 
@@ -56,7 +56,7 @@ Ex Nihilo: Sequentia must be installed to activate the Dust, Crushed End Stone, 
 
 ## Build
 
-Use Java 17.
+Use Java 21.
 
 ```powershell
 .\gradlew.bat build
@@ -65,9 +65,9 @@ Use Java 17.
 The release jar is written to:
 
 ```text
-build/libs/usrg-1.20.1-1.0.0.jar
+build/libs/usrg-1.21.1-1.0.0.jar
 ```
 
 ## Release Notes
 
-See [docs/releases/1.20.1-1.0.0-neoforge.md](docs/releases/1.20.1-1.0.0-neoforge.md).
+See [docs/releases/1.21.1-1.0.0-neoforge.md](docs/releases/1.21.1-1.0.0-neoforge.md).

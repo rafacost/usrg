@@ -2,20 +2,22 @@ package com.rafacost3d.usrg.setup;
 
 import com.rafacost3d.usrg.USRG;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 public final class ModCreativeTabs {
     private static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, USRG.MODID);
 
-    public static final RegistryObject<CreativeModeTab> USRG_TAB = CREATIVE_TABS.register("usrg", () -> CreativeModeTab.builder()
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> USRG_TAB = CREATIVE_TABS.register("usrg", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.usrg"))
             .icon(() -> new ItemStack(ModBlocks.COBBLEGENERATOR.get()))
             .displayItems((parameters, output) -> {
@@ -52,13 +54,13 @@ public final class ModCreativeTabs {
         CREATIVE_TABS.register(eventBus);
     }
 
-    private static void acceptIf(CreativeModeTab.Output output, boolean condition, RegistryObject<? extends Item> item) {
+    private static void acceptIf(CreativeModeTab.Output output, boolean condition, Supplier<? extends Item> item) {
         if (condition) {
             output.accept(item.get());
         }
     }
 
     private static boolean blockExists(String namespace, String path) {
-        return ForgeRegistries.BLOCKS.containsKey(new ResourceLocation(namespace, path));
+        return BuiltInRegistries.BLOCK.containsKey(ResourceLocation.fromNamespaceAndPath(namespace, path));
     }
 }

@@ -15,9 +15,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.minecraft.core.registries.BuiltInRegistries;
 import org.lwjgl.glfw.GLFW;
 
 import javax.annotation.Nullable;
@@ -30,17 +30,17 @@ public class CrushedEndstoneGenerator extends BaseGenerator {
 
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack stack, @Nullable BlockGetter worldIn, List<Component> tooltip, TooltipFlag flags) {
+    public void appendHoverText(ItemStack stack, net.minecraft.world.item.Item.TooltipContext context, List<Component> tooltip, TooltipFlag flags) {
 
         if (InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), GLFW.GLFW_KEY_LEFT_SHIFT)) {
             Component information = Component.translatable("block.generator.information");
 
             if (information != null) {
-                ResourceLocation key = new ResourceLocation("exnihilosequentia:crushed_end_stone");
+                ResourceLocation key = ResourceLocation.parse("exnihilosequentia:crushed_end_stone");
                 String text = information.getString();
 
-                if (ForgeRegistries.BLOCKS.containsKey(key)) {
-                    Block block = ForgeRegistries.BLOCKS.getValue(key);
+                if (BuiltInRegistries.BLOCK.containsKey(key)) {
+                    Block block = BuiltInRegistries.BLOCK.get(key);
                     text = text.replace("{item}", block.getName().getString());
                 } else {
                     text = text.replace("{item}", CrushedEndstoneGeneratorTile.GENERATION_BLOCK.getName().getString());

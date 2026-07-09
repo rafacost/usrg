@@ -2,20 +2,16 @@ package com.rafacost3d.usrg.blocks;
 
 import com.rafacost3d.usrg.setup.Config;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.ItemHandlerHelper;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.ItemHandlerHelper;
+import net.neoforged.neoforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 public abstract class BaseGeneratorTile extends BlockEntity {
 
@@ -51,32 +47,23 @@ public abstract class BaseGeneratorTile extends BlockEntity {
     public abstract ItemStack getGenerationBlock() ;
 
     @Override
-    protected void saveAdditional(@Nonnull CompoundTag tag) {
-        CompoundTag compound = getHandler().serializeNBT();
+    protected void saveAdditional(@Nonnull CompoundTag tag, HolderLookup.Provider provider) {
+        super.saveAdditional(tag, provider);
+        CompoundTag compound = getHandler().serializeNBT(provider);
         tag.put("inv", compound);
     }
 
     @Override
-    public void load(@Nonnull CompoundTag tag) {
-        super.load(tag);
-        getHandler().deserializeNBT(tag.getCompound("inv"));
+    protected void loadAdditional(@Nonnull CompoundTag tag, HolderLookup.Provider provider) {
+        super.loadAdditional(tag, provider);
+        getHandler().deserializeNBT(provider, tag.getCompound("inv"));
     }
 
-    protected ItemStackHandler getHandler(){
+    public ItemStackHandler getHandler(){
         if (handler == null) {
             handler = new ItemStackHandler(1);
         }
         return handler;
-    }
-
-    @SuppressWarnings("unchecked")
-    @Nonnull
-    @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        if (cap == ForgeCapabilities.ITEM_HANDLER){
-            return LazyOptional.of(() -> (T) getHandler());
-        }
-        return super.getCapability(cap, side);
     }
 
 }
