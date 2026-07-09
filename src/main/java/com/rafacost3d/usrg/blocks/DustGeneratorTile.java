@@ -1,5 +1,7 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.setup.ModBlockEntities;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -8,7 +10,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class DustGeneratorTile extends BaseGeneratorTile {
 
@@ -16,7 +17,7 @@ public class DustGeneratorTile extends BaseGeneratorTile {
     public static final Block GENERATION_BLOCK = Blocks.SAND;
 
     public DustGeneratorTile(BlockPos pos, BlockState state) {
-        super(DUSTGENERATOR_TILE, pos, state);
+        super(ModBlockEntities.DUSTGENERATOR_TILE.get(), pos, state);
     }
 
     @Override

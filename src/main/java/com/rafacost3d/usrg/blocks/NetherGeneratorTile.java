@@ -1,19 +1,20 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.rafacost3d.usrg.setup.ModBlockEntities;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
-import static com.rafacost3d.usrg.blocks.ModBlocks.*;
 
 public class NetherGeneratorTile extends BaseGeneratorTile {
 
 	public static final Block GENERATION_BLOCK = Blocks.NETHERRACK;
 
     public NetherGeneratorTile(BlockPos pos, BlockState state) {
-        super(NETHERGENERATOR_TILE, pos, state);
+        super(ModBlockEntities.NETHERGENERATOR_TILE.get(), pos, state);
     }
 
     @Override

@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -26,9 +25,10 @@ public abstract class BaseGenerator extends HorizontalDirectionalBlock implement
             BooleanOp.OR);
 
     public BaseGenerator(int lightLevel) {
-        super(Properties.of(Material.GLASS) // Material.GLASS is required to help with the neighbor block rendering through the glass
+        super(Properties.of()
                 .sound(SoundType.STONE)
                 .strength(2.0f)
+                .noOcclusion()
                 .lightLevel((light) -> lightLevel)
         );
     }
