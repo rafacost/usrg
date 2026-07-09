@@ -58,11 +58,19 @@ configurations {
     runtimeClasspath.extendsFrom localRuntime
 }
 
+repositories {
+    maven {
+        name = "Jared Maven"
+        url = "https://maven.blamejared.com"
+    }
+}
+
 obfuscation {
     createRemappingConfiguration(configurations.localRuntime)
 }
 
 dependencies {
+    modRuntimeOnly "mezz.jei:jei-1.20.1-forge:15.20.0.133"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
