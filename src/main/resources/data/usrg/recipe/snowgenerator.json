@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "L#L",
+    "W#W",
     "SGS"
   ],
   "key": {
@@ -12,18 +12,18 @@
 	"T": {
 		"item": "minecraft:diamond_block"
 	},
-	"L": {
-		"item": "minecraft:lava_bucket"
+	"W": {
+		"item": "minecraft:water_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"item": "minecraft:ender_pearl"
+		"item": "minecraft:snowball"
 	}
   },
   "result": {
-    "item": "usrg:endgenerator"
+    "id": "usrg:snowgenerator"
   },
   "group": "usrg"
 }

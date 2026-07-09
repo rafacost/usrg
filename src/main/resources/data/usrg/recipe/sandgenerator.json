@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#W",
+    "W#L",
     "SGS"
   ],
   "key": {
@@ -10,20 +10,23 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:gold_block"
+		"item": "minecraft:iron_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
 	},
+	"L": {
+		"item": "minecraft:lava_bucket"
+	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"item": "minecraft:dirt"
+		"tag": "c:sands/colorless"
 	}
   },
   "result": {
-    "item": "usrg:grassgenerator"
+    "id": "usrg:sandgenerator"
   },
   "group": "usrg"
 }

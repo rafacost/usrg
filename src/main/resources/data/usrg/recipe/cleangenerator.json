@@ -10,7 +10,7 @@
       "item": "minecraft:stone_bricks"
     },
     "T": {
-      "item": "minecraft:netherite_block"
+      "item": "minecraft:iron_block"
     },
     "W": {
       "item": "minecraft:water_bucket"
@@ -19,14 +19,14 @@
       "item": "minecraft:lava_bucket"
     },
     "G": {
-      "tag": "forge:glass/colorless"
+      "tag": "c:glass_blocks/colorless"
     },
     "#": {
-      "tag": "forge:ores/diamond"
+      "item": "minecraft:stone"
     }
   },
   "result": {
-    "item": "usrg:oregenerator"
+    "id": "usrg:cleangenerator"
   },
   "group": "usrg"
 }

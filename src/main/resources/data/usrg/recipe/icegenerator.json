@@ -16,14 +16,14 @@
 		"item": "minecraft:water_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
 		"item": "minecraft:snowball"
 	}
   },
   "result": {
-    "item": "usrg:icegenerator"
+    "id": "usrg:icegenerator"
   },
   "group": "usrg"
 }

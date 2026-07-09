@@ -6,13 +6,11 @@ import com.rafacost3d.usrg.setup.ModBlocks;
 import com.rafacost3d.usrg.setup.ModCreativeTabs;
 import com.rafacost3d.usrg.setup.ModItems;
 import com.rafacost3d.usrg.setup.ModSetup;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fml.loading.FMLPaths;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 @Mod(USRG.MODID)
 public class USRG {
@@ -20,19 +18,17 @@ public class USRG {
 
     private final ModSetup setup = new ModSetup();
 
-    public USRG() {
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
-
+    public USRG(IEventBus modBus, ModContainer modContainer) {
         ModBlocks.register(modBus);
         ModItems.register(modBus);
         ModBlockEntities.register(modBus);
         ModCreativeTabs.register(modBus);
 
         modBus.addListener(this::setup);
+        modBus.addListener(ModBlockEntities::registerCapabilities);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
-        Config.loadConfig(Config.COMMON_CONFIG, FMLPaths.CONFIGDIR.get().resolve("usrg-common.toml"));
+        modContainer.registerConfig(ModConfig.Type.CLIENT, Config.CLIENT_CONFIG);
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
     }
 
     private void setup(final FMLCommonSetupEvent event) {

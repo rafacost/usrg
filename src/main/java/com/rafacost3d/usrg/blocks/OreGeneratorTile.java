@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 
 public class OreGeneratorTile extends BaseRandomGeneratorTile {
@@ -39,9 +39,9 @@ public class OreGeneratorTile extends BaseRandomGeneratorTile {
 				}
 			}
 			
-			ResourceLocation resourceKey = new ResourceLocation(itemName);
-			if (ForgeRegistries.ITEMS.containsKey(resourceKey)) {
-				Item item = ForgeRegistries.ITEMS.getValue(resourceKey);
+			ResourceLocation resourceKey = ResourceLocation.parse(itemName);
+			if (BuiltInRegistries.ITEM.containsKey(resourceKey)) {
+				Item item = BuiltInRegistries.ITEM.get(resourceKey);
 
                 rndItems.put(key, item);
                 rndProbs.put(key, (int)(probability * 100));

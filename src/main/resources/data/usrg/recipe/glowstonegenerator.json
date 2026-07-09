@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#L",
+    "L#L",
     "SGS"
   ],
   "key": {
@@ -12,21 +12,18 @@
 	"T": {
 		"item": "minecraft:gold_block"
 	},
-	"W": {
-		"item": "minecraft:water_bucket"
-	},
 	"L": {
 		"item": "minecraft:lava_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"item": "minecraft:gravel"
+		"item": "minecraft:glowstone_dust"
 	}
   },
   "result": {
-    "item": "usrg:gravelgenerator"
+    "id": "usrg:glowstonegenerator"
   },
   "group": "usrg"
 }

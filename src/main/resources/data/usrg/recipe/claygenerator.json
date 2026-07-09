@@ -16,14 +16,14 @@
 		"item": "minecraft:water_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"item": "minecraft:dirt"
+		"item": "minecraft:clay_ball"
 	}
   },
   "result": {
-    "item": "usrg:dirtgenerator"
+    "id": "usrg:claygenerator"
   },
   "group": "usrg"
 }

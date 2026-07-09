@@ -1,4 +1,8 @@
 {
+  "neoforge:conditions": [{
+    "type": "neoforge:item_exists",
+    "item": "exnihilosequentia:crushed_netherrack"
+  }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
@@ -10,7 +14,7 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:iron_block"
+		"item": "minecraft:diamond_block"
 	},
 	"W": {
 		"item": "minecraft:water_bucket"
@@ -19,14 +23,14 @@
 		"item": "minecraft:lava_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"item": "minecraft:cobblestone"
+		"item": "minecraft:nether_wart"
 	}
   },
   "result": {
-    "item": "usrg:cobblegenerator"
+    "id": "usrg:nethercrushedgenerator"
   },
   "group": "usrg"
 }

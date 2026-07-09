@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#L",
+    "W#W",
     "SGS"
   ],
   "key": {
@@ -15,18 +15,15 @@
 	"W": {
 		"item": "minecraft:water_bucket"
 	},
-	"L": {
-		"item": "minecraft:lava_bucket"
-	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"tag": "forge:sand/colorless"
+		"item": "minecraft:dirt"
 	}
   },
   "result": {
-    "item": "usrg:sandgenerator"
+    "id": "usrg:dirtgenerator"
   },
   "group": "usrg"
 }

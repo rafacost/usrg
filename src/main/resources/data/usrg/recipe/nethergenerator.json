@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "STS",
-    "W#W",
+    "L#L",
     "SGS"
   ],
   "key": {
@@ -10,20 +10,20 @@
 		"item": "minecraft:stone_bricks"
 	},
 	"T": {
-		"item": "minecraft:gold_block"
+		"item": "minecraft:diamond_block"
 	},
-	"W": {
-		"item": "minecraft:water_bucket"
+	"L": {
+		"item": "minecraft:lava_bucket"
 	},
 	"G": {
-		"tag": "forge:glass/colorless"
+		"tag": "c:glass_blocks/colorless"
 	},
 	"#": {
-		"tag": "forge:mushrooms"
+		"item": "minecraft:nether_wart"
 	}
   },
   "result": {
-    "item": "usrg:fungusgenerator"
+    "id": "usrg:nethergenerator"
   },
   "group": "usrg"
 }

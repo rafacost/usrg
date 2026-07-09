@@ -1,5 +1,6 @@
 package com.rafacost3d.usrg.blocks;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -31,6 +32,11 @@ public abstract class BaseGenerator extends HorizontalDirectionalBlock implement
                 .noOcclusion()
                 .lightLevel((light) -> lightLevel)
         );
+    }
+
+    @Override
+    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
+        return MapCodec.unit(this);
     }
 
     @Override
